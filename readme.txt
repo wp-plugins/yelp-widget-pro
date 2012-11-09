@@ -6,7 +6,7 @@ Requires at least: 3.0
 Tested up to: 3.4.2
 Stable tag: 1.0
 
-Yelp Widget Pro makes it easy for you to add business listings to your website or blog via an easy-to-use and intuitive widget.  Simply activate the widget, enter in your Yelp account's API Information and place the widget in your desired widget zone.  It's that easy.
+Yelp Widget Pro makes it easy for you to add business listings to your website or blog via an easy-to-use and intuitive widget.
 
 == Description ==
 
