@@ -1,4 +1,4 @@
-=== WP-Admin Icons ===
+=== Yelp Widget Pro ===
 Contributors: dlocc
 Donate link: http://imdev.in/
 Tags: yelp, yelp widget, yelp shortcode, yelp api, yelp business listings, yelp reviews, yelp widget pro
@@ -6,11 +6,11 @@ Requires at least: 3.0
 Tested up to: 3.4.2
 Stable tag: 1.0
 
-Yelp Widget Pro makes it easy for you to add business listings to your website or blog.  Simply activate the widget, enter in your account's Yelp API Information and place the widget in your desired widget zone (sidebar) and configure your output.
+Yelp Widget Pro makes it easy for you to add business listings to your website or blog via an easy-to-use and intuitive widget.  Simply activate the widget, enter in your Yelp account's API Information and place the widget in your desired widget zone.  It's that easy.
 
 == Description ==
 
-Display Yelp profiles for one or many business on your website or blog using this easily configurable widget.  Show a business name, rating, review count, and business image in your sidebar.
+Display Yelp profiles for one or many business on your website or blog using this easily configurable widget.  Show a business name, rating, review count, and business image in your sidebar.  Display one or many listings by search term or ID based on any location supported by Yelp.  Use multiple widgets within the same or separate sidebars for a variety of listings.  Actively supported and developed and available for free to the WordPress community.
 
 = Features =
 
