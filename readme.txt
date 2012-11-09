@@ -33,8 +33,6 @@ Note: If you have Wordpress 2.7 or above you can simply go to 'Plugins' &gt; 'Ad
 
 == Frequently Asked Questions ==
 
-None as of yet.
-
 = Why should I use this plugin? =
 
 Use this plugin if you have a website that would benefit in displaying search results for a Yelp search term.  For example, a travel website selling reservations could display the top resorts for a given destination.  A business website could also display their yelp business listing in their sidebar by using the Business ID search option
