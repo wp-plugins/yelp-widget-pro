@@ -55,7 +55,7 @@ Some themes may have very small sidebars and CSS styles that conflict or alter t
 
 2. Many plugins don't have the option to disable CSS - this one does.  If you want to style the plugin to suit your needs then enable this option.
 
-3. Yelp Widget Pro expandeded displaying all available options as of version 1.0
+3. Yelp Widget Pro expanded displaying all available options as of version 1.1
 
 4. How the widget looks in a website sidebar
 
