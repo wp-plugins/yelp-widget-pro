@@ -113,9 +113,11 @@ class Yelp_Widget extends WP_Widget {
 
         //Yelp Widget Options
         $title              = apply_filters('widget_title', $instance['title']);
+        $displayOption      = $instance['display_option'];
         $term               = $instance['term'];
         $id                 = $instance['id'];
         $location           = $instance['location'];
+        $address            = $instance['display_address'];
         $limit              = $instance['limit'];
         $sort               = $instance['sort'];
         $align              = $instance['alignment'];
@@ -133,8 +135,7 @@ class Yelp_Widget extends WP_Widget {
             'sort'             => $sort
         );
 
-        //Remove align from the urlparams
-        unset($urlparams['align']);
+
 
         // If ID param is set, use business method and delete any other parameters
         if ($urlparams['id'] != '') {
@@ -275,10 +276,11 @@ class Yelp_Widget extends WP_Widget {
                    $noFollow = '';
                }
 
+               //Begin Setting Output Variable by Looping Data from Yelp
                for ( $x = 0; $x < count($businesses); $x++) {
                    $output .= '<div class="yelp yelp-business '. $align .'">'
-                           . '<img class="picture" src="'
-                               . esc_attr($businesses[$x]->image_url) . '" />'
+                           . '<div class="biz-img-wrap"><img class="picture" src="'
+                               . esc_attr($businesses[$x]->image_url) . '" /></div>'
                            . '<div class="info">'
                                . '<a class="name" '
                                    . $targetBlank
@@ -300,9 +302,24 @@ class Yelp_Widget extends WP_Widget {
                                    . $targetBlank
                                    . $noFollow .'>
                                    <img src="' . WP_PLUGIN_URL . '/yelp-widget-pro/style/yelp.png" alt="powered by Yelp" />'
-                               . '</a>'
-                           . '</div>'
-                       . '</div>';
+                               . '</a></div>';
+
+
+                               //Does the User want to display Address?
+                               if($address == 1) {
+                                   $output .=  '<div class="yelp-address-wrap"><address>';
+
+                                   //Itterate through Address Array
+                                   foreach($businesses[$x]->location->display_address as $addressItem){
+
+                                          $output .= $addressItem."<br/>";
+                                   }
+
+                                   $output .=  '<address></div>';
+
+                               }
+                        //Continue Setting Output Variable
+                        $output .= '</div>';
 
                }
            }
@@ -320,9 +337,11 @@ class Yelp_Widget extends WP_Widget {
     function update($new_instance, $old_instance) {
         $instance = $old_instance;
         $instance['title']                = strip_tags($new_instance['title']);
+        $instance['display_option']       = strip_tags($new_instance['display_option']);
         $instance['term']                 = strip_tags($new_instance['term']);
         $instance['id']                   = strip_tags($new_instance['id']);
         $instance['location']             = strip_tags($new_instance['location']);
+        $instance['display_address']      = strip_tags($new_instance['display_address']);
         $instance['limit']                = strip_tags($new_instance['limit']);
         $instance['sort']                 = strip_tags($new_instance['sort']);
         $instance['alignment']            = strip_tags($new_instance['alignment']);
@@ -341,9 +360,11 @@ class Yelp_Widget extends WP_Widget {
    function form($instance) {
 
         $title          = esc_attr($instance['title']);
+        $displayOption  = esc_attr($instance['display_option']);
         $term           = esc_attr($instance['term']);
         $id             = esc_attr($instance['id']);
         $location       = esc_attr($instance['location']);
+        $address        = esc_attr($instance['display_address']);
         $limit          = esc_attr($instance['limit']);
         $sort           = esc_attr($instance['sort']);
         $align          = esc_attr($instance['alignment']);
@@ -360,7 +381,7 @@ class Yelp_Widget extends WP_Widget {
         ?>
             <div class="alert alert-red">Please input your Yelp API information in the <a href="options-general.php?page=yelp_widget">plugin settings</a> page prior to enabling Yelp Widget Pro.</div>
         <?php }
-        //The user has properly inputted Yelp API info so output widget form
+        //The user has properly inputted Yelp API info so output widget form so output the widget contents
         else {
         ?>
 
@@ -370,17 +391,21 @@ class Yelp_Widget extends WP_Widget {
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
          </p>
 
+        <!-- Listing Options -->
+        <p class="widget-api-option">
+            <label for="<?php echo $this->get_field_id('display_option'); ?>"><?php _e('Yelp API Request Method:'); ?></label><br />
+            <input type="radio" name="<?php echo $this->get_field_name('display_option'); ?>" class="<?php echo $this->get_field_id('display_option'); ?>" value="0" <?php checked('0', $displayOption); ?>><span>Search Method</span><br />
+            <input type="radio" name="<?php echo $this->get_field_name('display_option'); ?>" class="<?php echo $this->get_field_id('display_option'); ?>" value="1" <?php checked('1', $displayOption); ?>><span>Business Method</span>
+        </p>
+
+        <div class="toggle-api-option-1 toggle-item <?php if($displayOption == 0) { echo 'toggled'; } ?>">
          <!-- Search Term -->
          <p>
             <label for="<?php echo $this->get_field_id('term'); ?>"><?php _e('Search Term:'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('term'); ?>" name="<?php echo $this->get_field_name('term'); ?>" type="text" value="<?php echo $term; ?>" />
          </p>
 
-         <!-- Business ID -->
-         <p>
-            <label for="<?php echo $this->get_field_id('id'); ?>"><?php _e('Business ID:'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('id'); ?>" name="<?php echo $this->get_field_name('id'); ?>" type="text" value="<?php echo $id; ?>" />
-         </p>
+
 
          <!-- Location -->
          <p>
@@ -418,9 +443,34 @@ class Yelp_Widget extends WP_Widget {
             </select>
         </p>
 
+        </div><!-- /.toggle-api-option-1 -->
 
 
-        <div class="advanced-options">
+        <div class="toggle-api-option-2 toggle-item  <?php if($displayOption == 1) { echo 'toggled'; } ?>">
+           <!-- Business ID -->
+           <p>
+             <label for="<?php echo $this->get_field_id('id'); ?>"><?php _e('Business ID:'); ?></label>
+             <input class="widefat" id="<?php echo $this->get_field_id('id'); ?>" name="<?php echo $this->get_field_name('id'); ?>" type="text" value="<?php echo $id; ?>" />
+           </p>
+        </div>
+
+
+        <h4 class="yelp-toggler">Display Options: <span></span></h4>
+
+        <div class="display-options toggle-item">
+
+
+            <!-- Disable title output checkbox -->
+            <p>
+              <input id="<?php echo $this->get_field_id('display_address'); ?>" name="<?php echo $this->get_field_name('display_address'); ?>" type="checkbox" value="1" <?php checked( '1', $address ); ?>/>
+              <label for="<?php echo $this->get_field_id('display_address'); ?>"><?php _e('Display Business Address'); ?></label>
+           </p>
+
+        </div>
+
+        <h4 class="yelp-toggler">Advanced Options: <span></span></h4>
+
+        <div class="advanced-options toggle-item">
 
                 <!-- Disable title output checkbox -->
                 <p>

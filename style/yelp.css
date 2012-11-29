@@ -1,4 +1,3 @@
-
 /**
  * Styling for display Yelp Widget Pro
  * Note: Thanks be to the Yelp It plugin author for the following CSS which has been heavily modified
@@ -20,11 +19,13 @@
  
  /* Many themes have some kind of styling on images */
 
-div.yelp-business img { padding: 0; margin: 0; border: none; background: transparent none; box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; float: none; }
+.yelp-business img { padding: 0; margin: 0; border: none; background: transparent none; box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; float: none; }
 
-.yelp-business img.picture { display: block; float: left; width: 60px; height: 60px; padding-right: 10px; }
+.biz-img-wrap { float:left; width:30%; }
 
-.yelp-business .info { float: left; }
+.yelp-business img.picture { display: block; float: left; width: 60px; height: 60px; border-radius: 3px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
+
+.yelp-business .info { float: left; width:70%; }
 
 .yelp-business a.name { display: block; float: none; font-size: 15px; line-height: 1; font-weight: 600; margin: 0 0 6px; color: #C41200; text-decoration: none; }
 
@@ -33,3 +34,5 @@ div.yelp-business img { padding: 0; margin: 0; border: none; background: transpa
 .yelp-business .review-count { color: #999; font-size: 11px; line-height: 1; margin-left: 6px; }
 
 .yelp-business .yelp-branding img { display: block; }
+
+.yelp-address-wrap { margin:0; padding: 10px 0 0; font-size:11px; clear:both; line-height: 16px; }

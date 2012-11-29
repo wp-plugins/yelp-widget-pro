@@ -45,6 +45,10 @@ If you would like to display only your certain business then you must enter in y
 
 If you would like to theme the widget yourself you should disable the plugin's CSS output.  To do that please visit the options page (Settings > Yelp Widget Pro) and check the appropriate option.
 
+= The plugin looks funny in my sidebar, what's the deal? =
+
+Some themes may have very small sidebars and CSS styles that conflict or alter the styles within Yelp Widget Pro.  To correct any styling errors you can either disable the plugin's CSS all together or override the CSS selectors in use to make the widget appear how you'd like.  CSS-related issues are not actively supported as there's too many variations between the thousands of WordPress themes available.
+
 == Screenshots ==
 
 1. A view of the Yelp Widget Pro Settings page displaying the metabox to enter in your Yelp API v2.0 Information
@@ -56,6 +60,14 @@ If you would like to theme the widget yourself you should disable the plugin's C
 4. How the widget looks in a website sidebar
 
 == Changelog ==
+
+= 1.1 =
+* Improved frontend widget display CSS with percentage-based element widths
+* Added business address display option to widget functionality
+* Cleaned up Widget UI: Added toggle option panels
+* Cleaned up options panel UI: Added metaboxes to hold content; fixed typo in introduction; added like box for WordImpressed
+* Improved how scripts are loaded in the WordPress admin panel by only loaded them on the pages needed
+* Coming soon: Premium Add-ons! Themes, New Features and More.
 
 = 1.0 =
 * Initial plugin release - Special thanks to the Yelp It plugin for kickstarting this widget
