@@ -1,0 +1,51 @@
+/*
+ * Styles for the Yelp Widget Pro options panel
+ */
+.notice { font-weight: bold; font-size: 18px; color: green; }
+
+.control-group { margin-bottom: 10px; }
+
+.control-label { clear: left; width: 200px; display: inline-block; vertical-align: top; }
+
+.controls { display: inline-block; }
+
+.settings_page_yelp_widget input[type="text"] { width: 280px; }
+
+.settings_page_yelp_widget input.button-primary { clear: left; width: auto; display: block; }
+
+.help-block { color: #999; font-size: 85%; margin-top: 2px; }
+
+.label { padding: 2px 4px 3px; font-size: 85%; font-weight: bold; color: #fff; text-shadow: 0 -1px 0 rgba(0,0,0,.25); background-color: #B94A48; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+
+/* Alerts */
+.alert {
+  padding: 8px 14px;
+  color: #c09853;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+.alert p  { margin:0; }
+
+.alert-red {
+color: #B94A48;
+background-color: #F2DEDE;
+border-color: #EED3D7;
+}
+
+.alert-red a { color:#B94A48 !important; }
+
+.alert-success {
+color: #468847;
+background-color: #DFF0D8;
+border-color: #D6E9C6;
+}
+
+.alert-info {
+color: #3A87AD;
+background-color: #D9EDF7;
+border-color: #BCE8F1;
+}
