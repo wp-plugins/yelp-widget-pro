@@ -374,7 +374,9 @@ class PluginUpdateChecker {
 			$update = apply_filters('puc_pre_inject_update-' . $this->slug, $update);
 			$updates->response[$this->pluginFile] = $update->toWpFormat();
 		} else {
-			unset($updates->response[$this->pluginFile]);
+            if($updates->response[$this->pluginFile]) {
+                unset($updates->response[$this->pluginFile]);
+            }
 		}
 
 		return $updates;
