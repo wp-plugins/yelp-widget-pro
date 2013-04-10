@@ -33,7 +33,7 @@
 .toggle-item.toggled { display: block; }
 .widget-api-option { line-height: 22px; }
 .widget-api-option input { margin-right:4px; }
-
+.toggle-item select { background: #FFF; }
 
 /*!
  * Bootstrap v2.2.1

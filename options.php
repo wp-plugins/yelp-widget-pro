@@ -10,6 +10,13 @@ register_uninstall_hook(__FILE__, 'yelp_widget_uninstall');
 add_action('admin_init', 'yelp_widget_init');
 add_action('admin_menu', 'yelp_widget_add_options_page');
 
+
+//Including Licensing
+$licenseFuncs = include(dirname(__FILE__) . '/lib/license.php');
+if(file_exists($licenseFuncs)){
+   echo $licenseFuncs;
+}
+
 // Delete options when uninstalled
 function yelp_widget_uninstall() {
     delete_option('yelp_widget_settings');
@@ -33,8 +40,8 @@ function yelp_widget_activate() {
 function yelp_widget_add_options_page() {
     // Add the menu option under Settings, shows up as "Yelp API Settings" (second param)
     $page = add_submenu_page('options-general.php',  //The parent page of this menu
-                             'Yelp Widget Pro Settings',  //The Menu Title
-                             'Yelp Widget Pro', //The Page Title
+                             __('Yelp Widget Pro Settings','ywp'),  //The Menu Title
+                             __('Yelp Widget Pro','ywp'), //The Page Title
                              'manage_options',  // The capability required for access to this item
                              'yelp_widget',  // the slug to use for the page in the URL
                              'yelp_widget_options_form'); // The function to call to render the page
@@ -46,10 +53,14 @@ function yelp_widget_add_options_page() {
 }
 //Add Yelp Widget Pro option scripts to admin head - will only be loaded on plugin options page
 function yelp_options_scripts() {
+
+        //register admin JS
+        wp_enqueue_script('yelp_widget_options_js', WP_PLUGIN_URL . '/yelp-widget-pro/js/options-js.js');
+
         //register our stylesheet
-        wp_register_style('yelp_widget_css', WP_PLUGIN_URL . '/yelp-widget-pro/style/options.css');
+        wp_register_style('yelp_widget_options_css', WP_PLUGIN_URL . '/yelp-widget-pro/style/options.css');
         // It will be called only on plugin admin page, enqueue our stylesheet here
-        wp_enqueue_style('yelp_widget_css');
+        wp_enqueue_style('yelp_widget_options_css');
 }
 
 //Load Widget JS Script ONLY on Widget page
@@ -79,13 +90,19 @@ function yelp_widget_init() {
 
 // Output the yelp_widget option setting value
 function yelp_widget_option($setting, $options) {
+    $value = "";
     // If the old setting is set, output that
     if (get_option($setting) != '') {
-        echo get_option($setting);
-    } else if (is_array($options)) {
-        echo $options[$setting];
+        $value = get_option($setting);
+    } elseif (is_array($options)) {
+        $value = $options[$setting];
     }
+
+    return $value;
+
 }
+
+
 
 // Generate the admin form
 function yelp_widget_options_form() { ?>
@@ -93,43 +110,41 @@ function yelp_widget_options_form() { ?>
 <div class="wrap" xmlns="http://www.w3.org/1999/html">
         <!-- Plugin Title -->
         <div id="icon-plugins" class="icon32"><br></div>
-        <h2>Yelp Widget Pro Settings</h2>
-
-
+        <h2><?php _e('Yelp Widget Pro Settings', 'ywp'); ?> </h2>
+        <form id="yelp-settings" method="post" action="options.php">
 
         <div class="metabox-holder">
 
             <div class="postbox-container" style="width:75%">
 
-                <form id="yelp-settings" method="post" action="options.php">
 
                     <div id="main-sortables" class="meta-box-sortables ui-sortable">
                         <div class="postbox" id="yelp-widget-intro">
                             <div class="handlediv" title="Click to toggle"><br></div>
-                            <h3 class="hndle"><span>Yelp Widget Pro Introduction</span></h3>
+                            <h3 class="hndle"><span><?php _e('Yelp Widget Pro Introductions', 'ywp'); ?></span></h3>
                             <div class="inside">
-                                  <p>Thanks for choosing Yelp Widget Pro! <strong>To start using Yelp Widget Pro you must have a valid Yelp API key</strong>.  Don't worry, it's <em>free</em> and very easy to get one!</p>
+                                  <p><?php _e('Thanks for choosing Yelp Widget Pro! <strong>To start using Yelp Widget Pro you must have a valid Yelp API key</strong>.  Don\'t worry, it\'s <em>free</em> and very easy to get one!','ywp'); ?></p>
 
-                                <p><strong>Yelp Widget Pro Activation Instructions:</strong></p>
+                                <p><strong><?php _e('Yelp Widget Pro Activation Instructions:', 'ywp'); ?></strong></p>
 
                                 <ol>
-                                    <li>Sign into Yelp or create an account if you don't have one already</li>
-                                    <li>Once logged in, <a href="http://www.yelp.com/developers/getting_started/api_access" target="_blank">sign up for API access</a></li>
-                                    <li>After you have been granted an API key copy-and-paste the API v2.0 information into the appropriate fields below</li>
-                                    <li>Click update to activate and begin using Yelp Widget Pro</li>
+                                    <li><?php _e('Sign into Yelp or create an account if you don\'t have one already','ywp'); ?></li>
+                                    <li><?php _e('Once logged in, <a href="http://www.yelp.com/developers/getting_started/api_access" target="_blank">sign up for API access','ywp'); ?></a></li>
+                                    <li><?php _e('After you have been granted an API key copy-and-paste the API v2.0 information into the appropriate fields below','ywp'); ?></li>
+                                    <li><?php _e('Click update to activate and begin using Yelp Widget Pro','ywp'); ?></li>
                                 </ol>
 
                                 <div class="adminFacebook">
-                                   <p><strong>Like this plugin?  Give it a like on Facebook:</strong></p>
-                                   <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FWordImpressed%2F130943526946924&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=28" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:28px;" allowTransparency="true"></iframe>
-                                 </div>
+                                   <p><strong><?php _e('Like this plugin?  Give it a like on Facebook:', 'ywp'); ?></strong></p>
+                                    <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FWordImpress%2F353658958080509&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=220596284639969" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+                                </div>
 
                               </div><!-- /.inside -->
                         </div><!-- /#yelp-widget-intro -->
 
                         <div class="postbox" id="api-options">
 
-                             <h3 class="hndle"><span>Yelp API v2.0 Information</span></h3>
+                             <h3 class="hndle"><span><?php _e('Yelp API v2.0 Information','ywp'); ?></span></h3>
 
                              <div class="inside">
                                 <?php
@@ -153,7 +168,7 @@ function yelp_widget_options_form() { ?>
                                     <div class="controls">
                                         <input type="text" id="yelp_widget_consumer_key"
                                             name="yelp_widget_settings[yelp_widget_consumer_key]"
-                                            value="<?php yelp_widget_option('yelp_widget_consumer_key', $options); ?>"
+                                            value="<?php echo yelp_widget_option('yelp_widget_consumer_key', $options); ?>"
                                         />
                                     </div>
                                 </div>
@@ -167,10 +182,7 @@ function yelp_widget_options_form() { ?>
                                     <div class="controls">
                                         <input type="text" id="yelp_widget_consumer_secret"
                                             name="yelp_widget_settings[yelp_widget_consumer_secret]"
-                                            value="<?php
-                                                yelp_widget_option('yelp_widget_consumer_secret', $options);
-                                            ?>"
-                                        />
+                                            value="<?php echo yelp_widget_option('yelp_widget_consumer_secret', $options);  ?>" />
                                     </div>
                                 </div>
 
@@ -183,8 +195,7 @@ function yelp_widget_options_form() { ?>
                                     <div class="controls">
                                         <input type="text" id="yelp_widget_token"
                                             name="yelp_widget_settings[yelp_widget_token]"
-                                            value="<?php yelp_widget_option('yelp_widget_token', $options); ?>"
-                                        />
+                                            value="<?php echo yelp_widget_option('yelp_widget_token', $options); ?>"  />
                                     </div>
                                 </div>
 
@@ -197,10 +208,7 @@ function yelp_widget_options_form() { ?>
                                     <div class="controls">
                                         <input type="text" id="yelp_widget_token_secret"
                                             name="yelp_widget_settings[yelp_widget_token_secret]"
-                                            value="<?php
-                                                yelp_widget_option('yelp_widget_token_secret', $options);
-                                            ?>"
-                                        />
+                                            value="<?php echo yelp_widget_option('yelp_widget_token_secret', $options); ?>" />
                                     </div>
                                 </div>
                                 </div><!-- /.inside -->
@@ -226,41 +234,40 @@ function yelp_widget_options_form() { ?>
                                             ?>
                                         />
                                     </div>
-                                </div>
+                                </div><!--/.control-group -->
 
                            </div><!-- /.inside -->
                         </div><!-- /#yelp-widget-options -->
+
                         <div class="control-group">
                            <div class="controls">
-                               <input class="button-primary" type="submit" name="submit" value="<?php _e('Update'); ?>" />
+                               <input class="button-primary" type="submit" name="submit-button" value="<?php _e('Update'); ?>" />
                            </div>
                        </div>
-                </form>
             </div><!-- /#main-sortables -->
         </div><!-- /.postbox-container -->
         <div class="alignright" style="width:24%">
             <div id="sidebar-sortables" class="meta-box-sortables ui-sortable">
+                <?php
+                $licenseMetabox = include(dirname(__FILE__) .'/lib/license-metabox.php');
+                if(file_exists($licenseMetabox)){
+                    echo $licenseMetabox;
+                } ?>
                 <div id="yelp-widget-pro-support" class="postbox">
                     <div class="handlediv" title="Click to toggle"><br></div><h3 class="hndle"><span>Need Support?</span></h3>
                     <div class="inside">
                     <p>If you have any problems with this plugin or ideas for improvements or enhancements, please use the <a href="http://wordpress.org/support/plugin/yelp-widget-pro" target="_blank">Support Forums</a>.</p>
                     </div><!-- /.inside -->
                 </div><!-- /.yelp-widget-pro-support -->
-                <div id="yelp-widget-coming-soon" class="postbox">
-                    <div class="handlediv" title="Click to toggle"><br></div><h3 class="hndle"><span>Yelp Widget Pro News</span></h3>
-                    <div class="inside">
-                        <p>We're working hard to release new features soon to be available in the free and upcoming premium version of Yelp Widget Pro:</p>
-                        <ol>
-                            <li><strong>Yelp Review Snippets</strong> - Display up to 3-reviews excerpts per business.  Widget will display the user's avatar, star rating and 2-3 sentences of their excerpt.</li>
-                            <li><strong>Shortcode</strong> - Display Yelp business ratings and reviews anywhere on your site using a configurable shortcode</li>
-                            <li><strong>Image Size Variations</strong> - Choose the size to display your images</li>
-                        </ol>
-                    </div><!-- /.inside -->
-                </div><!-- /.yelp-widget-coming-soon -->
-            </div>
 
-        </div>
+            </div><!-- /.sidebar-sortables -->
+
+
+        </div><!-- /.alignright -->
     </div><!-- /.metabox-holder -->
+</form>
+
+
 </div><!-- /#wrap -->
 
 <?php
