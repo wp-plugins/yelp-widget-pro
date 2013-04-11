@@ -4,6 +4,8 @@
 
 #icon-yelp { background: url('../images/yelp-logo-transparent-icon.png') no-repeat 0 0 transparent; float: left; width: 96px; height: 45px; margin-right: 12px; }
 
+#icon-yelp + h2 { line-height: 36px; }
+
 .notice { font-weight: bold; font-size: 18px; color: green; }
 
 .control-group { margin-bottom: 10px; }
