@@ -1,7 +1,6 @@
 <?php
 /**
  *  Admin options page. Creates a page to set your OAuth settings for the Yelp API v2.
- *  A special thanks to the Yelp It plugin for the great code!
  *
  */
 
@@ -11,11 +10,6 @@ add_action('admin_init', 'yelp_widget_init');
 add_action('admin_menu', 'yelp_widget_add_options_page');
 
 
-//Including Licensing
-$licenseFuncs = include(dirname(__FILE__) . '/lib/license.php');
-if(file_exists($licenseFuncs)){
-   echo $licenseFuncs;
-}
 
 // Delete options when uninstalled
 function yelp_widget_uninstall() {
@@ -32,9 +26,6 @@ function yelp_widget_activate() {
     $options = get_option('yelp_widget_settings');
 
 }
-
-// Purely for debugging, do not uncomment this unless you want to delete all your settings
-// yelp_widget_uninstall();
 
 //Yelp Options Page
 function yelp_widget_add_options_page() {
@@ -55,10 +46,10 @@ function yelp_widget_add_options_page() {
 function yelp_options_scripts() {
 
         //register admin JS
-        wp_enqueue_script('yelp_widget_options_js', WP_PLUGIN_URL . '/yelp-widget-pro/js/options-js.js');
+    wp_enqueue_script('yelp_widget_options_js', plugins_url( 'includes/js/options.js' , dirname(__FILE__) ));
 
         //register our stylesheet
-        wp_register_style('yelp_widget_options_css', WP_PLUGIN_URL . '/yelp-widget-pro/style/options.css');
+        wp_register_style('yelp_widget_options_css', plugins_url( 'includes/style/options.css' , dirname(__FILE__) ));
         // It will be called only on plugin admin page, enqueue our stylesheet here
         wp_enqueue_style('yelp_widget_options_css');
 }
@@ -66,8 +57,8 @@ function yelp_options_scripts() {
 //Load Widget JS Script ONLY on Widget page
 function yelp_widget_scripts($hook){
        if($hook == 'widgets.php'){
-           wp_enqueue_script('yelp_widget_admin_scripts', WP_PLUGIN_URL . '/yelp-widget-pro/js/admin-widget.js');
-           wp_enqueue_style('yelp_widget_admin_css', WP_PLUGIN_URL . '/yelp-widget-pro/style/admin-widget.css');
+           wp_enqueue_script('yelp_widget_admin_scripts', plugins_url( 'includes/js/admin-widget.js' , dirname(__FILE__) ));
+           wp_enqueue_style('yelp_widget_admin_css', plugins_url( 'includes/style/admin-widget.css' , dirname(__FILE__) ));
        } else {
            return;
        }
@@ -108,8 +99,9 @@ function yelp_widget_option($setting, $options) {
 function yelp_widget_options_form() { ?>
 
 <div class="wrap" xmlns="http://www.w3.org/1999/html">
+
         <!-- Plugin Title -->
-        <div id="icon-plugins" class="icon32"><br></div>
+        <div id="icon-yelp" class=""><br></div>
         <h2><?php _e('Yelp Widget Pro Settings', 'ywp'); ?> </h2>
         <form id="yelp-settings" method="post" action="options.php">
 
@@ -249,7 +241,7 @@ function yelp_widget_options_form() { ?>
         <div class="alignright" style="width:24%">
             <div id="sidebar-sortables" class="meta-box-sortables ui-sortable">
                 <?php
-                $licenseMetabox = include(dirname(__FILE__) .'/lib/license-metabox.php');
+                $licenseMetabox = include(YELP_WIDGET_PRO_PATH . '/lib/license-metabox.php');
                 if(file_exists($licenseMetabox)){
                     echo $licenseMetabox;
                 } ?>

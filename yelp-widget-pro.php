@@ -23,8 +23,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-// error_reporting(E_ALL);
-// ini_set('display_errors', '1');
 
 define( 'YELP_PLUGIN_NAME', 'yelp-widget-pro');
 define( 'YELP_WIDGET_PRO_PATH', WP_PLUGIN_DIR.'/'.YELP_PLUGIN_NAME);
@@ -35,7 +33,7 @@ define( 'YELP_WIDGET_PRO_URL', WP_PLUGIN_URL.'/'.YELP_PLUGIN_NAME);
 /**
  * Adds Yelp Widget Pro Options Page
  */
-require_once (dirname (__FILE__) . '/options.php');
+require_once (dirname(__FILE__) . '/includes/options.php');
 if(!class_exists('OAuthToken', false)) {
     require_once (dirname (__FILE__) . '/lib/oauth.php');
 }
@@ -45,6 +43,13 @@ if(!class_exists('OAuthToken', false)) {
  */
 load_plugin_textdomain('ywp' , false, dirname( plugin_basename(__FILE__) ) . '/languages/' );
 
+/**
+ * Licensing
+ */
+$licenseFuncs = include(dirname(__FILE__) . '/lib/license.php');
+if (file_exists($licenseFuncs)) {
+    echo $licenseFuncs;
+}
 
 /**
  * Logic to check for updated version of Yelp Widget Pro Premium
@@ -53,15 +58,17 @@ load_plugin_textdomain('ywp' , false, dirname( plugin_basename(__FILE__) ) . '/l
 $options = get_option('yelp_widget_settings');
 if($options['yelp_widget_premium_license_status'] == "1") {
 
-    /*
+    /**
      * Adds the Premium Plugin updater
      */
     require 'lib/plugin-updates/plugin-update-checker.php';
     $MyUpdateChecker = new PluginUpdateChecker(
-        'http://wordimpressed.local/downloads/yelp-widget-pro-premium.json',
+        'http://wordimpress.com/downloads/yelp-widget-pro-premium.json',
         __FILE__,
         'yelp-widget-pro'
     );
+
+    $licenseTransient = get_transient('yelp_widget_license_transient');
 
 }
 
@@ -77,18 +84,16 @@ function add_yelp_widget_css() {
 
     if($cssOption["yelp_widget_disable_css"] == 0) {
 
-        $url = WP_PLUGIN_URL . '/yelp-widget-pro/style/yelp.css';
-        $dir = WP_PLUGIN_DIR . '/yelp-widget-pro/style/yelp.css';
+        $url = plugins_url(YELP_PLUGIN_NAME.'/includes/style/yelp.css', dirname(__FILE__));
 
-        if (file_exists($dir)) {
-            wp_register_style('yelp-widget', $url);
-            wp_enqueue_style('yelp-widget');
-        }
+        wp_register_style('yelp-widget', $url);
+        wp_enqueue_style('yelp-widget');
+
     }
 
 }
 
-/*
+/**
  * Get the Widget
  */
 if(!class_exists('Yelp_Widget')) {

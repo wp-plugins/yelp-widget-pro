@@ -9,13 +9,12 @@ global $options;
     <div class="handlediv" title="Click to toggle"><br></div><h3 class="hndle"><span><?php _e('Yelp Widget Pro Premium', 'ywp'); ?></span></h3>
 
     <div class="inside">
-        <img src="<?php echo YELP_WIDGET_PRO_URL.'/style/plugin-metabox-icon.png'; ?>" width="200" height="150" />
         <?php
 
-        /*
-         *  Premium License Logic - No Obfuscation Here
-         *  Stealing isn't nice... please respect our work and purchase a license rather than hacking :)
-         */
+        /**
+          *  Premium License Logic - No Obfuscation Here
+          *  Stealing isn't nice... please respect our work and purchase a license rather than hacking :)
+          */
 
         //Check license logic
         $licensing = new Plugin_Licensing();
@@ -28,8 +27,7 @@ global $options;
 
         //Activated
         $status = $response["activated"];
-        $code = $response["code"];
-        ?>
+        $code = $response["code"]; ?>
 
         <form id="yelp-license" method="post" action="options.php">
 

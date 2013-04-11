@@ -9,9 +9,9 @@ if ( !class_exists('Plugin_Licensing') ):
 class Plugin_Licensing {
 
     private $plugin = 'yelp-widget-pro/yelp-widget-pro.php';
-    private $base_url = 'http://wordimpressed-new.local/';
-    private $opensource = 'http://wordimpressed-new.local/downloads/files/yelp-widget-pro.zip';
-    private $premium = 'http://wordimpressed-new.local/downloads/files/yelp-widget-pro.zip';
+    private $base_url = 'http://wordimpress.com/';
+    private $opensource = 'http://wordimpress.com/downloads/files/yelp-widget-pro.zip';
+    private $premium    = 'http://wordimpress.com/downloads/files/yelp-widget-pro.zip';
     private $productID = 'YELPWIDGETPRO';
 
 
@@ -47,16 +47,11 @@ class Plugin_Licensing {
             //Run Upgrade Func
             Plugin_Licensing::upgrade_downgrade($this->premium);
 
-
-
         }
 
         return $result;
 
     }
-
-
-
 
     // Valid deactivation reset request
     public function deactivate_license($options){
@@ -88,6 +83,14 @@ class Plugin_Licensing {
         }
 
         return $result;
+
+    }
+
+    //Check License
+    public function check_license(){
+
+
+
 
     }
 
@@ -165,9 +168,6 @@ class Plugin_Licensing {
         $status = $response["activated"];
         $code = $response["code"];
 
-//        var_dump($status);
-//        var_dump($response);
-
         //License is good and activated
         if(!empty($status) && $status == true || $response == 'valid') {
            $message = ($response['message'] != "v") ? ' <br/>'.$response['message'] : '';
@@ -223,15 +223,15 @@ class Plugin_Licensing {
           $upgrader->init();
           $upgrader->install_strings();
           $upgrader->upgrade_strings();
-          $upgrader->run(array(
-          					'package' => $package,
-          					'destination' => WP_PLUGIN_DIR,
-          					'clear_destination' => true,
-          					'clear_working' => true,
-          					'hook_extra' => array(
-          								'plugin' => $this->plugin
-          					)
-          				));
+//          $upgrader->run(array(
+//          					'package' => $package,
+//          					'destination' => WP_PLUGIN_DIR,
+//          					'clear_destination' => true,
+//          					'clear_working' => true,
+//          					'hook_extra' => array(
+//          								'plugin' => $this->plugin
+//          					)
+//          				));
 
     }
 
