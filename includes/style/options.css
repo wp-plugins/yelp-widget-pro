@@ -24,7 +24,7 @@
 
 #yelp-widget-pro-premium .code, #yelp-widget-pro-premium .wrap #icon-options-general, #icon-options-general + h2 { display: none !important; }
 
-#yelp-widget-pro-premium .wrap p:first-of-type::after { content: ' http://wordimpressed.com'; }
+#yelp-widget-pro-premium .wrap p:first-of-type::after { content: ' http://wordimpress.com'; }
 
 /* Alerts */
 .alert {
