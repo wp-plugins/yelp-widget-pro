@@ -11,7 +11,7 @@ class Plugin_Licensing {
     private $plugin = 'yelp-widget-pro/yelp-widget-pro.php';
     private $base_url = 'http://wordimpress.com/';
     private $opensource = 'http://wordimpress.com/downloads/files/yelp-widget-pro.zip';
-    private $premium    = 'http://wordimpress.com/downloads/files/yelp-widget-pro.zip';
+    private $premium    = 'http://wordimpress.com/downloads/files/yelp-widget-pro-premium.zip';
     private $productID = 'YELPWIDGETPRO';
 
 
@@ -223,15 +223,15 @@ class Plugin_Licensing {
           $upgrader->init();
           $upgrader->install_strings();
           $upgrader->upgrade_strings();
-//          $upgrader->run(array(
-//          					'package' => $package,
-//          					'destination' => WP_PLUGIN_DIR,
-//          					'clear_destination' => true,
-//          					'clear_working' => true,
-//          					'hook_extra' => array(
-//          								'plugin' => $this->plugin
-//          					)
-//          				));
+          $upgrader->run(array(
+          					'package' => $package,
+          					'destination' => WP_PLUGIN_DIR,
+          					'clear_destination' => true,
+          					'clear_working' => true,
+          					'hook_extra' => array(
+          								'plugin' => $this->plugin
+          					)
+          				));
 
     }
 
