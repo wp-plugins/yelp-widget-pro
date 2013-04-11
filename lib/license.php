@@ -11,7 +11,7 @@ class Plugin_Licensing {
     private $plugin = 'yelp-widget-pro/yelp-widget-pro.php';
     private $base_url = 'http://wordimpress.com/';
     private $opensource = 'http://wordimpress.com/downloads/files/yelp-widget-pro.zip';
-    private $premium    = 'http://wordimpress.com/downloads/files/yelp-widget-pro-premium.zip';
+    private $premium    = 'http://wordimpress.com/downloads/files2/yelp-widget-pro.zip';
     private $productID = 'YELPWIDGETPRO';
 
 

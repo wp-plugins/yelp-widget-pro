@@ -20,11 +20,33 @@
 
 .help-block { color: #999; font-size: 85%; margin-top: 2px; }
 
-.label { padding: 2px 4px 3px; font-size: 85%; font-weight: bold; color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, .25); background-color: #B94A48; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
-
 #yelp-widget-pro-premium .code, #yelp-widget-pro-premium .wrap #icon-options-general, #icon-options-general + h2 { display: none !important; }
 
 #yelp-widget-pro-premium .wrap p:first-of-type::after { content: ' http://wordimpress.com'; }
+
+.label {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 11.844px;
+    font-weight: bold;
+    line-height: 14px;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #999;
+}
+
+.basic-label { position: absolute; top: 22px; left: 370px; cursor: default; text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.15);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 3px 6px; }
+
+.update-link { position: absolute; top: 24px; left: 490px; }
 
 /* Alerts */
 .alert {
