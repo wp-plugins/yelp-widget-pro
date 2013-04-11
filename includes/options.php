@@ -101,7 +101,7 @@ function yelp_widget_options_form() { ?>
 <div class="wrap" xmlns="http://www.w3.org/1999/html">
 
         <!-- Plugin Title -->
-        <div id="icon-yelp" class=""><br></div>
+        <div id="icon-yelp" class=""></div>
         <h2><?php _e('Yelp Widget Pro Settings', 'ywp'); ?> </h2>
         <form id="yelp-settings" method="post" action="options.php">
 

@@ -2,9 +2,7 @@
  * Styles for the Yelp Widget Pro options panel
  */
 
-#icon-yelp { background: url('../images/yelp-logo-transparent-icon.png') no-repeat 0 0 transparent; float: left;
-    width: 96px;
-    height: 45px; margin-right: 12px; }
+#icon-yelp { background: url('../images/yelp-logo-transparent-icon.png') no-repeat 0 0 transparent; float: left; width: 96px; height: 45px; margin-right: 12px; }
 
 .notice { font-weight: bold; font-size: 18px; color: green; }
 

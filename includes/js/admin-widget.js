@@ -12,12 +12,13 @@ jQuery(function(){
 
 function yelpWidgetToggles() {
 
-    //API Method Toggle
-    jQuery('#widgets-right .widget-api-option input:not("clickable")').each(function() {
+      //API Method Toggle
+    jQuery('#widgets-right .widget-api-option .yelp-method-span:not("clickable")').each(function() {
 
         jQuery(this).addClass("clickable").unbind("click").click(function () {
             jQuery(this).parent().parent().find('.toggled').slideUp().removeClass('toggled');
-            if(jQuery(this).hasClass('search-api-option')) {
+            jQuery(this).find('input').attr('checked','checked');
+            if(jQuery(this).hasClass('search-api-option-wrap')) {
                 jQuery(this).parent().next('.toggle-api-option-1').slideToggle().toggleClass('toggled');
             } else {
                 jQuery(this).parent().next().next('.toggle-api-option-2').slideToggle().toggleClass('toggled');
@@ -36,8 +37,6 @@ function yelpWidgetToggles() {
          })
 
     });
-
-
 
 }
 
