@@ -10,11 +10,14 @@ Yelp Widget Pro makes it easy for you to add business listings to your website o
 
 == Description ==
 
-**Yelp Widget Pro Premium**
 
-**[Upgrade to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/)**
+= Yelp Widget Pro Premium =
+[Upgrade to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/ "Upgrade to Yelp Widget Pro Premium")
 
-*Yelp Widget Pro* allows you to easily display Yelp profiles for any business on your website or blog using an intuitive and easily configurable widget. Yelp Widget Pro users are able to display business names, ratings, review counts and profile images in any WordPress sidebar. Customize the widget to display one or many listings from Yelp based on location.
+*Yelp Widget Pro Premium* is a **significant upgrade** to *Yelp Widget Pro* that adds many features that will allow you to further customize your widgets with Google Maps, Yelp review snippets, additional graphics and display options plus so much more! Also included is priority support, lifetime updates, multisite support and well-documented shortcodes to use in any page or post.
+
+= Yelp Widget Pro =
+Yelp Widget Pro allows you to easily display Yelp profiles for any business on your website or blog using an intuitive and easily configurable widget. Yelp Widget Pro users are able to display business names, ratings, review counts and profile images in any WordPress sidebar. Customize the widget to display one or many listings from Yelp based on location.
 
 This widget supports for Yelp v2.0's Search and Business API methods. Yelp Widget Pro allows for multiple widgets within the same or separate sidebars. No coding knowledge required.
 
