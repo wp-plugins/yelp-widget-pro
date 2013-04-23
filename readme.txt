@@ -1,16 +1,21 @@
 === Yelp Widget Pro ===
 Contributors: dlocc
-Donate link: http://imdev.in/
+Donate link: http://wordimpress.com/
 Tags: yelp, yelp widget, yelp shortcode, yelp api, yelp business listings, yelp reviews, yelp widget pro
 Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 1.3
+Tested up to: 3.5.1
+Stable tag: 1.3.5
 
 Yelp Widget Pro makes it easy for you to add business listings to your website or blog via an easy-to-use and intuitive widget.
 
 == Description ==
 
-Display Yelp profiles for one or many business on your website or blog using this easily configurable widget.  Show a business name, rating, review count, and business image in your sidebar.  Display one or many listings by search term or ID based on any location supported by Yelp.  Use multiple widgets within the same or separate sidebars for a variety of listings.  Actively supported and developed and available for free to the WordPress community.
+**Yelp Widget Pro Premium**
+**[Upgrade to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/)**
+
+*Yelp Widget Pro* allows you to easily display Yelp profiles for any business on your website or blog using an intuitive and easily configurable widget.  User of Yelp Widget Pro are able to display any business name, rating, review count, and profile image in any WordPress sidebar.  Display one or many listings by search term and location supported using the *Search method*. Use multiple widgets within the same or separate sidebars.
+
+ This plugin is actively supported and developed. The open source version is available for free to the WordPress community. For additional options and priority support please consider [upgrading to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/). If you like this plugin please [rate it on WordPress.org](http://wordpress.org/support/view/plugin-reviews/yelp-widget-pro/).
 
 = Features =
 
@@ -60,6 +65,20 @@ Some themes may have very small sidebars and CSS styles that conflict or alter t
 4. How the widget looks in a website sidebar
 
 == Changelog ==
+
+= 1.3.5 =
+* NEW: Added tooltips with information and links to screencast tutorials on the widgets and on widget settings pages
+* NEW: Added default image for businesses without profile images
+* NEW: Added Profile image size select; now you can easily modify the size of your Yelp profile image
+* NEW: Added links to Options page, Rate the Plugin and Premium Upgrade on the Plugins page
+* UPDATED: Changed default number of items in Search Method to 4 rather than 1
+* UPDATED: Changed default cache value to 1 Day to encourage caching results
+* UPDATED: Widget image output alt and title tags for better SEO optimization
+* UPDATED: Readme.txt file with additional information and updated description
+* FIXED: Fixed Premium licensing metabox inputs min-width issue
+* Added link to Premium Version on widget
+* Code cleanup and organization
+
 
 = 1.3 =
 * Release of plugin w/ licensing logic

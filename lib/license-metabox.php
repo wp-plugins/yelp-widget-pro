@@ -37,7 +37,7 @@ global $options;
         <div class="control-group">
             <p><?php _e('If you have purchased a license for Yelp Widget Pro Premium you may enter it in below to enable premium features:', 'ywp'); ?></p>
             <div class="control-label">
-                  <label for="yelp_widget_premium_email"><?php _e('License Email','ywp'); ?></label>
+                  <label for="yelp_widget_premium_email"><?php _e('License Email','ywp'); ?><img src="<?php echo YELP_WIDGET_PRO_URL.'/includes/images/help.png'?>" title="<?php _e('This is the address you purchased the license key with and received email confirmation.', 'ywp'); ?>" class="tooltip-info" width="16" height="16" /></label>
             </div>
 
             <div class="controls">
@@ -48,7 +48,7 @@ global $options;
         </div><!--/.control-group -->
         <div class="control-group">
             <div class="control-label">
-                <label for="yelp_widget_premium_license"><?php _e('License Key','ywp'); ?></label>
+                <label for="yelp_widget_premium_license"><?php _e('License Key','ywp'); ?><img src="<?php echo YELP_WIDGET_PRO_URL.'/includes/images/help.png'?>" title="<?php _e('The license key can be found in your confirmation email. If you lost your license you can <a href=\'http://wordimpress.com/lost-licence/\'>request it sent by email</a>.', 'ywp'); ?>" class="tooltip-info" width="16" height="16" /></label>
             </div>
 
             <div class="controls">

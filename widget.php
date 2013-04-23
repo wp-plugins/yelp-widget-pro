@@ -61,6 +61,7 @@ class Yelp_Widget extends WP_Widget
         $location = $instance['location'];
         $address = $instance['display_address'];
         $limit = $instance['limit'];
+        $profileImgSize = $instance['profile_img_size'];
         $sort = $instance['sort'];
         $align = $instance['alignment'];
         $titleOutput = $instance['disable_title_output'];
@@ -104,7 +105,7 @@ class Yelp_Widget extends WP_Widget
 
         // Cache: cache option is enabled
         if ($cache != 'None') {
-            $transient = $term . $id . $location . $limit . $sort;
+            $transient = $term . $id . $location . $limit . $sort . $profileImgSize;
             // Check for an existing copy of our cached/transient data
             if (($response = get_transient($transient)) == false) {
 
@@ -175,6 +176,7 @@ class Yelp_Widget extends WP_Widget
         // Instantiate output var
         $output = '';
 
+        //Check Yelp API response for an error
         if (isset($response->error)) {
             $output = '<div class="yelp-error">';
             if ($response->error->id == 'EXCEEDED_REQS') {
@@ -184,9 +186,13 @@ class Yelp_Widget extends WP_Widget
             }
 
             $output .= '</div>';
-        } else if (!isset($businesses[0])) {
+        } //Verify results have been returned
+        else if (!isset($businesses[0])) {
             $output = '<div class="yelp-error">No results</div>';
-        } else {
+        } /**
+         * Response from Yelp is Valid - Output Widget
+         */
+        else {
 
 
             // Open link in new window if set
@@ -204,52 +210,89 @@ class Yelp_Widget extends WP_Widget
 
             //Begin Setting Output Variable by Looping Data from Yelp
             for ($x = 0; $x < count($businesses); $x++) {
-                $output .= '<div class="yelp yelp-business ' . $align . '">'
-                    . '<div class="biz-img-wrap"><img class="picture" src="'
-                    . esc_attr($businesses[$x]->image_url) . '" /></div>'
-                    . '<div class="info">'
-                    . '<a class="name" '
-                    . $targetBlank
-                    . $noFollow
-                    . 'href="'
-                    . esc_attr($businesses[$x]->url) . '" title="'
-                    . esc_attr($businesses[$x]->name) . ' Yelp page">'
-                    . $businesses[$x]->name
+                ?>
 
-                    . '</a>'
-                    . '<img class="rating" src="'
-                    . esc_attr($businesses[$x]->rating_img_url)
-                    . '" alt="" title="Yelp Rating" />'
-                    . '<span class="review-count">'
-                    . esc_attr($businesses[$x]->review_count)
-                    . ' reviews'
-                    . '</span>'
-                    . '<a class="yelp-branding" href="http://www.yelp.com"'
-                    . $targetBlank
-                    . $noFollow . '>
-                                   <img src="' . YELP_WIDGET_PRO_URL . '/includes/images/yelp.png" alt="Powered by Yelp" />'
-                    . '</a></div>';
+                <div class="yelp yelp-business <?php echo $align;
+
+                                            //Set profile image size
+                                            switch ($profileImgSize) {
+
+                                                case '40x40':
+                                                    echo "ywp-size-40";
+                                                    break;
+                                                case '60x60':
+                                                    echo "ywp-size-60";
+                                                    break;
+                                                case '80x80':
+                                                    echo "ywp-size-80";
+                                                    break;
+                                                case '100x100':
+                                                    echo "ywp-size-100";
+                                                    break;
+                                                default:
+                                                    echo "ywp-size-60";
+                                            }
 
 
-                //Does the User want to display Address?
-                if ($address == 1) {
-                    $output .= '<div class="yelp-address-wrap"><address>';
+                                            ?>">
+                    <div class="biz-img-wrap"><img class="picture" src="<?php if (!empty($businesses[$x]->image_url)) {
+                            echo esc_attr($businesses[$x]->image_url);
+                        } else {
+                            echo YELP_WIDGET_PRO_URL . '/includes/images/blank-biz.png';
+                        }; ?>"
+                            <?php
+                            //Set profile image size
+                            switch ($profileImgSize) {
 
-                    //Itterate through Address Array
-                    foreach ($businesses[$x]->location->display_address as $addressItem) {
+                                case '40x40':
+                                    echo "width='40' height='40'";
+                                    break;
+                                case '60x60':
+                                    echo "width='60' height='60'";
+                                    break;
+                                case '80x80':
+                                    echo "width='80' height='80'";
+                                    break;
+                                case '100x100':
+                                    echo "width='100' height='100'";
+                                    break;
+                                default:
+                                    echo "width='60' height='60'";
+                            } ?>
 
-                        $output .= $addressItem . "<br/>";
+                            /></div>
+                    <div class="info">
+                        <a class="name" <?php echo $targetBlank; ?>  <?php echo $noFollow; ?> href="<?php echo esc_attr($businesses[$x]->url); ?>" title="<?php echo esc_attr($businesses[$x]->name); ?> <?php _e('on Yelp', 'ywp'); ?>"><?php echo $businesses[$x]->name; ?></a>
+                        <img class="rating" src="<?php echo esc_attr($businesses[$x]->rating_img_url); ?>" alt="<?php echo esc_attr($businesses[$x]->name); ?> <?php _e('Yelp Rating', 'ywp'); ?>" title="<?php echo esc_attr($businesses[$x]->name); ?> <?php _e('Yelp Rating', 'ywp'); ?>"/>
+                        <span class="review-count"><?php echo esc_attr($businesses[$x]->review_count) . ' reviews'; ?></span>
+                        <a class="yelp-branding" href="http://www.yelp.com" <?php echo $targetBlank; ?> <?php echo $noFollow; ?>><img src="<?php echo YELP_WIDGET_PRO_URL . '/includes/images/yelp.png'; ?>" alt="Powered by Yelp"/></a>
+                    </div>
+
+                    <?php
+                    //Does the User want to display Address?
+                    if ($address == 1) {
+                        ?>
+                        <div class="yelp-address-wrap">
+                            <address>
+                                <?php
+                                //Iterate through Address Array
+                                foreach ($businesses[$x]->location->display_address as $addressItem) {
+
+                                    echo $addressItem . "<br/>";
+                                } ?>
+                                <address>
+                        </div>
+
+                    <?php
                     }
+                    //Continue Setting Output Variable
+                    ?> </div>
 
-                    $output .= '<address></div>';
+            <?php
 
-                }
-                //Continue Setting Output Variable
-                $output .= '</div>';
+            } //end for
+        } //Output Widget Contents
 
-            }
-        }
-        //Output Widget Contents
         echo $output;
 
         echo $after_widget;
@@ -271,6 +314,7 @@ class Yelp_Widget extends WP_Widget
         $instance['location'] = strip_tags($new_instance['location']);
         $instance['display_address'] = strip_tags($new_instance['display_address']);
         $instance['limit'] = strip_tags($new_instance['limit']);
+        $instance['profile_img_size'] = strip_tags($new_instance['profile_img_size']);
         $instance['sort'] = strip_tags($new_instance['sort']);
         $instance['alignment'] = strip_tags($new_instance['alignment']);
         $instance['disable_title_output'] = strip_tags($new_instance['disable_title_output']);
@@ -295,6 +339,7 @@ class Yelp_Widget extends WP_Widget
         $location = esc_attr($instance['location']);
         $address = esc_attr($instance['display_address']);
         $limit = esc_attr($instance['limit']);
+        $profileImgSize = esc_attr($instance['profile_img_size']);
         $sort = esc_attr($instance['sort']);
         $align = esc_attr($instance['alignment']);
         $titleOutput = esc_attr($instance['disable_title_output']);

@@ -12,22 +12,15 @@
 
 .yelp-business.center { margin: 0 auto 10px; }
 
-/**
- *
- * This is to override common general theme styling for images, you can easily override these as well.
- * I had to make these /kind/ of specific since so many themes have conflicting rules.
- *
- */
-
 /* Many themes have some kind of styling on images */
 
 .yelp-business img { padding: 0; margin: 0; border: none; background: transparent none; box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; float: none; }
 
-.biz-img-wrap { float: left; margin: 0;}
+.biz-img-wrap { float: left; margin: 0; }
 
-.yelp-business img.picture { display: block; float: left; width: 60px; height: 60px; border-radius: 3px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
+.yelp-business img.picture { display: block; float: left; border-radius: 3px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
 
-.yelp-business .info { margin-left: 72px; overflow: hidden; }
+.yelp-business .info { overflow: hidden; }
 
 .yelp-business a.name { display: block; float: none; font-size: 15px; line-height: 18px; font-weight: 600; margin: 0 0 6px; color: #C41200; text-decoration: none; }
 
@@ -35,75 +28,32 @@
 
 .yelp-business-info { margin: 0; }
 
-.yelp-business .info .review-count { color: #999; font-size: 11px; line-height: 1; margin: 3px 0 0 6px; float:left;  }
+.yelp-business .info .review-count { color: #999; font-size: 11px; line-height: 1; margin: 3px 0 0 6px; float: left; }
 
-.yelp-business .info .rating { float:left; }
+.yelp-business .info .rating { float: left; }
 
-.yelp-business .info .yelp-branding  { float:left; clear:both; }
+.yelp-business .info .yelp-branding { float: left; clear: both; }
 
 .yelp-business .yelp-branding img { display: block; }
 
 .yelp-address-wrap { margin: 10px 0 0; padding: 0; font-size: 11px; clear: both; line-height: 16px; }
 
-/* Business API Specific widget */
+/* Yelp Profile Image Sizes */
 
+.yelp-business.ywp-size-40 .info { margin-left: 51px; }
 
-/* Yelp Widget Alignment */
+.yelp-business.ywp-size-60 .info { margin-left: 72px; }
 
-.yelp-widget-right { float:right; margin: 0 0 20px 20px;}
-.yelp-widget-left { float:left; margin: 0 20px 20px 0;}
-.yelp-widget-none { float:none; display: block; }
+.yelp-business.ywp-size-80 .info { margin-left: 93px; }
 
-
-/* Yelp Widget Reviews */
-
-.yelp-business-reviews { margin: 20px 0 0; }
-
-.large-avatar .yelp-review-avatar { width: 100px; }
-
-.medium-avatar .yelp-review-avatar { width: 75px; }
-
-.small-avatar .yelp-review-avatar { }
-
-.yelp-review-avatar { float: left; }
-
-.yelp-review-avatar > .name { display: block; margin: 0; font-size: 11px; }
-
-.yelp-review-excerpt { font-size: 12px; line-height: 1em; margin: 0; padding: 0; position: relative;}
-
-.large-avatar .yelp-review-excerpt { margin-left: 115px; }
-
-.medium-avatar .yelp-review-excerpt { margin-left: 90px; }
-
-.small-avatar .yelp-review-excerpt { margin-left: 55px; }
-
-.yelp-review { margin: 0 0 10px; clear: left;}
-
-.yelp-review-excerpt-text > p { margin: 0; }
-
-.yelp-review-excerpt time { font-size: 12px; display: block; margin: 5px 0; }
-
-/* Google Map */
-.ywp-map-container { margin: 0; }
-
-.ywp-map { width: 100%; height: 200px; }
-
-.marker { font-size: 11px; min-height: 130px; }
-
-.marker .businessimage { float: left; }
-
-.marker .ratingsimage { vertical-align: middle; margin-top: 0px; }
-
-.marker .businessinfo { margin-left: 110px; overflow: hidden; line-height: 1.4em; }
-
-.marker .marker-business-name { font-size: 13px; font-weight: bold; }
-
+.yelp-business.ywp-size-100 .info { margin-left: 112px; }
 
 /* Bootstrap Css Map Fix*/
 .ywp-map img {
-  max-width: none !important;  background-color: transparent !important; background: transparent !important;
+    max-width: none !important; background-color: transparent !important; background: transparent !important;
 }
+
 /* Bootstrap Css Map Fix*/
 .ywp-map label {
-  width: auto !important; display:inline !important;
+    width: auto !important; display: inline !important;
 }
