@@ -75,6 +75,7 @@ Some themes may have very small sidebars and CSS styles that conflict or alter t
 * UPDATED: Changed default cache value to 1 Day to encourage caching results
 * UPDATED: Widget image output alt and title tags for better SEO optimization
 * UPDATED: Readme.txt file with additional information and updated description
+* UPDATED: Premium plugin update classes to latest version from GitHub
 * FIXED: Fixed Premium licensing metabox inputs min-width issue
 * Added link to Premium Version on widget
 * Code cleanup and organization
