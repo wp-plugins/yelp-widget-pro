@@ -11,11 +11,14 @@ Yelp Widget Pro makes it easy for you to add business listings to your website o
 == Description ==
 
 **Yelp Widget Pro Premium**
+
 **[Upgrade to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/)**
 
-*Yelp Widget Pro* allows you to easily display Yelp profiles for any business on your website or blog using an intuitive and easily configurable widget.  User of Yelp Widget Pro are able to display any business name, rating, review count, and profile image in any WordPress sidebar.  Display one or many listings by search term and location supported using the *Search method*. Use multiple widgets within the same or separate sidebars.
+*Yelp Widget Pro* allows you to easily display Yelp profiles for any business on your website or blog using an intuitive and easily configurable widget. Yelp Widget Pro users are able to display business names, ratings, review counts and profile images in any WordPress sidebar. Customize the widget to display one or many listings from Yelp based on location.
 
- This plugin is actively supported and developed. The open source version is available for free to the WordPress community. For additional options and priority support please consider [upgrading to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/). If you like this plugin please [rate it on WordPress.org](http://wordpress.org/support/view/plugin-reviews/yelp-widget-pro/).
+This widget supports for Yelp v2.0's Search and Business API methods. Yelp Widget Pro allows for multiple widgets within the same or separate sidebars. No coding knowledge required.
+
+Yelp Widget Pro is actively supported and developed. The open source version is available for free to the WordPress community. For additional options and priority support please consider [upgrading to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/). If you like this plugin please [rate it on WordPress.org](http://wordpress.org/support/view/plugin-reviews/yelp-widget-pro/).
 
 = Features =
 
