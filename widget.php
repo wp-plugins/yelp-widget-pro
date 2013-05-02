@@ -258,9 +258,7 @@ class Yelp_Widget extends WP_Widget
                                     break;
                                 default:
                                     echo "width='60' height='60'";
-                            } ?>
-
-                            /></div>
+                            } ?> /></div>
                     <div class="info">
                         <a class="name" <?php echo $targetBlank; ?>  <?php echo $noFollow; ?> href="<?php echo esc_attr($businesses[$x]->url); ?>" title="<?php echo esc_attr($businesses[$x]->name); ?> <?php _e('on Yelp', 'ywp'); ?>"><?php echo $businesses[$x]->name; ?></a>
                         <img class="rating" src="<?php echo esc_attr($businesses[$x]->rating_img_url); ?>" alt="<?php echo esc_attr($businesses[$x]->name); ?> <?php _e('Yelp Rating', 'ywp'); ?>" title="<?php echo esc_attr($businesses[$x]->name); ?> <?php _e('Yelp Rating', 'ywp'); ?>"/>

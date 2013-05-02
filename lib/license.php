@@ -102,21 +102,14 @@ class Plugin_Licensing {
         $target_url = html_entity_decode($target_url);
 
         //get data from target_url using WP's built in function
-    	$data = wp_remote_get($target_url);
-
-        //Handle response
-        if( is_wp_error( $data ) ) {
-
-            $message = "Something went wrong...";
-
-        }   else {
-
-            $message = $data['body'];
-
-        }
+        $ch = curl_init( $target_url );
+        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt( $ch, CURLOPT_HEADER, 0);
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+        $response = curl_exec( $ch );
 
         //Return JSON decoded response
-        return json_decode($message, true);
+        return json_decode($response, true);
 
     }
 

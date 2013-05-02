@@ -20,7 +20,9 @@
 
 .help-block { color: #999; font-size: 85%; margin-top: 2px; }
 
-/* Premium License Metabox */
+/*----------------------------------------
+ Premium License Metabox
+ ----------------------------------------*/
 
 #yelp-widget-pro-premium .code, #yelp-widget-pro-premium .wrap #icon-options-general, #icon-options-general + h2 { display: none !important; }
 

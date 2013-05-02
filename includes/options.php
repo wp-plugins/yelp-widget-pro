@@ -124,11 +124,7 @@ function yelp_widget_init($file) {
 
     //call register settings function
     add_action('admin_init', 'yelp_widget_options_css');
-
-    add_action('admin_menu', 'my_plugin_admin_menu');
     add_action('admin_init', 'yelp_widget_options_scripts');
-
-    $plugin = plugin_basename(__FILE__);
 
 }
 

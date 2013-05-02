@@ -89,6 +89,19 @@
 
 <div class="display-options toggle-item">
 
+    <!-- Profile Image Size -->
+    <p>
+       <label for="<?php echo $this->get_field_id('profile_img_size'); ?>"><?php _e('Profile Image Size:'); ?><img src="<?php echo YELP_WIDGET_PRO_URL.'/includes/images/help.png'?>" title="<?php _e('Customize the width and height of the business Yelp profile image.', 'ywp'); ?>" class="tooltip-info" width="16" height="16" /></label>
+       <select name="<?php echo $this->get_field_name('profile_img_size'); ?>" id="<?php echo $this->get_field_id('profile_img_size'); ?>" class="widefat">
+           <?php
+           $options = array('40x40','60x60','80x80','100x100');
+           foreach ($options as $option) { ?>
+
+               <option value="<?php echo $option; ?>" id="<?php echo $option; ?>" <?php if($profileImgSize == $option || empty($profileImgSize) && $option == '60x60') { echo 'selected="selected"'; } ?>><?php echo $option; ?></option>
+
+           <?php } ?>
+       </select>
+    </p>
 
     <!-- Disable title output checkbox -->
     <p>
@@ -96,19 +109,7 @@
         <label for="<?php echo $this->get_field_id('display_address'); ?>"><?php _e('Display Business Address', 'ywp'); ?></label>
     </p>
 
-    <!-- Profile Image Size -->
-    <p>
-        <label for="<?php echo $this->get_field_id('profile_img_size'); ?>"><?php _e('Profile Image Size:'); ?><img src="<?php echo YELP_WIDGET_PRO_URL.'/includes/images/help.png'?>" title="<?php _e('Customize the width and height of the business Yelp profile image.', 'ywp'); ?>" class="tooltip-info" width="16" height="16" /></label>
-        <select name="<?php echo $this->get_field_name('profile_img_size'); ?>" id="<?php echo $this->get_field_id('profile_img_size'); ?>" class="widefat">
-            <?php
-            $options = array('40x40','60x60','80x80','100x100');
-            foreach ($options as $option) { ?>
 
-                <option value="<?php echo $option; ?>" id="<?php echo $option; ?>" <?php if($profileImgSize == $option || empty($profileImgSize) && $option == '60x60') { echo 'selected="selected"'; } ?>><?php echo $option; ?></option>
-
-            <?php } ?>
-        </select>
-    </p>
 
 </div>
 
