@@ -10,7 +10,7 @@ class Plugin_Licensing {
 
     private $plugin = 'yelp-widget-pro/yelp-widget-pro.php';
     private $base_url = 'http://wordimpress.com/';
-    private $opensource = 'http://downloads.wordpress.org/plugin/yelp-widget-pro.1.3.5.1.zip';
+    private $opensource = 'http://downloads.wordpress.org/plugin/yelp-widget-pro.1.3.5.2.zip';
     private $premium    = 'http://wordimpress.com/downloads/files/yelp-widget-pro.zip';
     private $productID = 'YELPWIDGETPRO';
 
@@ -102,14 +102,21 @@ class Plugin_Licensing {
         $target_url = html_entity_decode($target_url);
 
         //get data from target_url using WP's built in function
-        $ch = curl_init( $target_url );
-        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt( $ch, CURLOPT_HEADER, 0);
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec( $ch );
+    	$data = wp_remote_get($target_url);
+
+        //Handle response
+        if( is_wp_error( $data ) ) {
+
+            $message = "Something went wrong...";
+
+        }   else {
+
+            $message = $data['body'];
+
+        }
 
         //Return JSON decoded response
-        return json_decode($response, true);
+        return json_decode($message, true);
 
     }
 

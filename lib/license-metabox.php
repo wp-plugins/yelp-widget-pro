@@ -16,11 +16,11 @@ global $options;
           *  Stealing isn't nice... please respect our work and purchase a license rather than hacking :)
           */
 
-        //Check license logic
+        //License logic
         $licensing = new Plugin_Licensing();
-
-        $response = $licensing->license_status($options);
         $options = get_option('yelp_widget_settings');
+        $response = $licensing->license_status($options);
+
 
         //Current License Status
         $licenseStatus = $options["yelp_widget_premium_license_status"];
