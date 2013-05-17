@@ -57,6 +57,7 @@
     <!-- Sort -->
     <p>
         <label for="<?php echo $this->get_field_id('sort'); ?>"><?php _e('Sorting:'); ?></label>
+
         <select name="<?php echo $this->get_field_name('sort'); ?>" id="<?php echo $this->get_field_id('sort'); ?>" class="widefat">
             <?php
             $options = array(__('Best Match', 'ywp'), __('Distance', 'ywp'), __('Highest Rated', 'ywp'));
@@ -64,7 +65,7 @@
             $counter = 0;
 
             foreach ($options as $option) {
-                echo '<option value="' . $counter . '" id="' . $option . '"', $sort == $option ? ' selected="selected"' : '', '>', $option, '</option>';
+                echo '<option value="' . $counter . '" id="' . $option . '"', $sort == $counter ? ' selected="selected"' : '', '>', $option, '</option>';
                 $counter++;
             }
             ?>

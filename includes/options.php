@@ -103,7 +103,7 @@ function ywp_get_support_forum_link( $linkText = '' ) {
     if ( empty($linkText) ) {
         $linkText = __( 'Support', 'ywp' );
     }
-    return '<a href="http://wordpress.org/support/plugin/yelp-widget-pro/" target="_blank" title="Get Support">' . $linkText . '</a>';
+    return '<a href="http://wordimpress.com/support/forum/yelp-widget-pro/" target="_blank" title="Get Support">' . $linkText . '</a>';
 }
 
 function ywp_get_options_link( $linkText = '' ) {
@@ -191,6 +191,36 @@ function yelp_widget_options_form()
                                         <strong><?php _e('Like this plugin?  Give it a like on Facebook:', 'ywp'); ?></strong>
                                     </p>
                                     <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FWordImpress%2F353658958080509&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=220596284639969" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+
+                                    <a href="https://twitter.com/wordimpress" class="twitter-follow-button" data-show-count="false">Follow @wordimpress</a>
+                                   <script>!function (d, s, id) {
+                                           var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                           if (!d.getElementById(id)) {
+                                               js = d.createElement(s);
+                                               js.id = id;
+                                               js.src = p + '://platform.twitter.com/widgets.js';
+                                               fjs.parentNode.insertBefore(js, fjs);
+                                           }
+                                       }(document, 'script', 'twitter-wjs');</script>
+                                   <div class="google-plus">
+                                       <!-- Place this tag where you want the +1 button to render. -->
+                                       <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="200" data-href="https://plus.google.com/117062083910623146392"></div>
+
+
+                                       <!-- Place this tag after the last +1 button tag. -->
+                                       <script type="text/javascript">
+                                           (function () {
+                                               var po = document.createElement('script');
+                                               po.type = 'text/javascript';
+                                               po.async = true;
+                                               po.src = 'https://apis.google.com/js/plusone.js';
+                                               var s = document.getElementsByTagName('script')[0];
+                                               s.parentNode.insertBefore(po, s);
+                                           })();
+                                       </script>
+                                   </div>
+                                   <!--/.google-plus -->
+
                                 </div>
 
                             </div>
@@ -299,7 +329,7 @@ function yelp_widget_options_form()
                             <h3 class="hndle"><span><?php _e('Need Support?','ywp'); ?></span></h3>
 
                             <div class="inside">
-                                <p><?php _e(' If you have any problems with this plugin or ideas for improvements or enhancements, please use the WP.org <a href="http://wordpress.org/support/plugin/yelp-widget-pro" target="_blank" class="new-window">Support Forums</a>. Please note that support is prioritized for <a href="http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/" title="Upgrade to Yelp Widget Pro Premium" target="_blank" class="new-window">Premium Users</a>.','ywp'); ?></p>
+                                <p><?php _e(' If you have any problems with this plugin or ideas for improvements or enhancements, please use the WordImpress support forum: <a href="http://wordimpress.com/support/forum/yelp-widget-pro/" target="_blank" class="new-window">Support Forums</a>. Please note, support is prioritized for <a href="http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/" title="Upgrade to Yelp Widget Pro Premium" target="_blank" class="new-window">Premium Users</a>.','ywp'); ?></p>
                             </div>
                             <!-- /.inside -->
                         </div>

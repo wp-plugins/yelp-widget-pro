@@ -10,7 +10,7 @@ class Plugin_Licensing {
 
     private $plugin = 'yelp-widget-pro/yelp-widget-pro.php';
     private $base_url = 'http://wordimpress.com/';
-    private $opensource = 'http://downloads.wordpress.org/plugin/yelp-widget-pro.1.3.5.2.zip';
+    private $opensource = 'http://downloads.wordpress.org/plugin/yelp-widget-pro.1.3.6.zip';
     private $premium    = 'http://wordimpress.com/downloads/files/yelp-widget-pro.zip';
     private $productID = 'YELPWIDGETPRO';
 
@@ -186,7 +186,7 @@ class Plugin_Licensing {
                  $error = __('<p><strong>License Invalid</strong><br/> Exceeded maximum number of activations.</p>','ywp');
                  break;
              default :
-                 $error = __('<p><strong>Invalid Request</strong><br/> Please <a href="http://wordpress.org/support/plugin/yelp-widget-pro" target="_blank">contact support</a> for assistance.</p>', 'ywp');
+                 $error = __('<p><strong>Invalid Request</strong><br/> Please <a href="http://wordimpress.com/support/forum/yelp-widget-pro/" target="_blank">contact support</a> for assistance.</p>', 'ywp');
          }
 
          $response = '<div class="license-activated alert alert-red">'.$error.'</div>';
