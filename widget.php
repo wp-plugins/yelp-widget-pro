@@ -145,7 +145,7 @@ class Yelp_Widget extends WP_Widget
                 set_transient($transient, $response, $expiration);
 
             }
-            ;
+
 
         } else {
 
@@ -366,7 +366,7 @@ class Yelp_Widget extends WP_Widget
 }
 
 /*
- * @DESC: Register Twitter Widget Pro widget
+ * @DESC: Register Yelp Widget Pro widget
  */
 add_action('widgets_init', create_function('', 'register_widget( "Yelp_Widget" );'));
 
