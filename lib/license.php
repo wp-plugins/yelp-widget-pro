@@ -10,8 +10,8 @@ if (!class_exists('Plugin_Licensing')):
 
         private $plugin = 'yelp-widget-pro/yelp-widget-pro.php';
         private $base_url = 'http://wordimpress.com/';
-        private $opensource = 'http://downloads.wordpress.org/plugin/yelp-widget-pro.1.3.6.zip';
-        private $premium = 'http://wordimpress.com/downloads/files/yelp-widget-pro.zip';
+        private $opensource = 'http://downloads.wordpress.org/plugin/yelp-widget-pro.zip';
+        public $premium = 'http://wordimpress.com/wp-update-server/?action=download&slug=yelp-widget-pro';
         private $productID = 'YELPWIDGETPRO';
 
 
@@ -43,15 +43,16 @@ if (!class_exists('Plugin_Licensing')):
                 $options['yelp_widget_premium_license_status'] = "1";
                 update_option('yelp_widget_settings', $options);
 
-
                 //Run Upgrade Func
-                Plugin_Licensing::upgrade_downgrade($this->premium);
+                $premiumPackage = add_query_arg( array('license_key' => $licence_key), $this->premium);
+                Plugin_Licensing::upgrade_downgrade($premiumPackage);
 
             }
 
             return $result;
 
         }
+
 
         // Valid deactivation reset request
         public function deactivate_license($options) {
@@ -86,13 +87,6 @@ if (!class_exists('Plugin_Licensing')):
 
         }
 
-        //Check License
-        public function check_license() {
-
-
-        }
-
-
         /**
          * Execute Software API Request
          * @param $args
@@ -102,10 +96,9 @@ if (!class_exists('Plugin_Licensing')):
             //Create request URL
             $target_url = $this->create_url($args);
             $target_url = html_entity_decode($target_url);
-
             //get data from target_url using WP's built in function
             $data = wp_remote_get($target_url);
-            if ($this->isJson($data['body']) == false) {
+            if (is_object(json_decode($data['body']))) {
                 $ch = curl_init($target_url);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -125,13 +118,6 @@ if (!class_exists('Plugin_Licensing')):
             //Return JSON decoded response
             return json_decode($message, true);
 
-        }
-
-        //check if jSON
-        // see: http://stackoverflow.com/questions/6041741/fastest-way-to-check-if-a-string-is-json-in-php
-        public function isJson($string) {
-            json_decode($string);
-            return (json_last_error() == JSON_ERROR_NONE);
         }
 
 
@@ -178,9 +164,9 @@ if (!class_exists('Plugin_Licensing')):
 
         //Display License Responses to User
         public function license_response($response) {
+
             $status = $response["activated"];
             $code = $response["code"];
-
             //License is good and activated
             if (!empty($status) && $status == true || $response == 'valid') {
                 $message = ($response['message'] != "v") ? ' <br/>' . $response['message'] : '';
@@ -193,6 +179,9 @@ if (!class_exists('Plugin_Licensing')):
                 switch ($code) {
                     case '101' :
                         $error = __('<p><strong>License Invalid</strong><br/> Please check that the license you are using is valid.</p>', 'ywp');
+                        break;
+                    case '102' :
+                        $error = __('<p><strong>Error Code 102</strong><br/> Software has been deactivated.</p>', 'ywp');
                         break;
                     case '103' :
                         $error = __('<p><strong>License Invalid</strong><br/> Exceeded maximum number of activations.</p>', 'ywp');
@@ -226,10 +215,8 @@ if (!class_exists('Plugin_Licensing')):
         } //end license_response
 
         private function upgrade_downgrade($package) {
-
             include ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
             $upgrader = new Plugin_Upgrader();
-
             $upgrader->init();
             $upgrader->install_strings();
             $upgrader->upgrade_strings();
