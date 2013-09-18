@@ -10,7 +10,6 @@ Yelp Widget Pro makes it easy for you to add business listings to your website o
 
 == Description ==
 
-
 = Yelp Widget Pro Premium =
 [Upgrade to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/ "Upgrade to Yelp Widget Pro Premium")
 
