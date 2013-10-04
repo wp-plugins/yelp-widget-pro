@@ -72,7 +72,6 @@ if($options['yelp_widget_premium_license_status'] == "1") {
 
     /* ... Code that initializes the update checker ... */
     //Add the license key to query arguments.
-    //@see:
     $updateChecker->addQueryArgFilter('wsh_filter_update_checks');
     function wsh_filter_update_checks($queryArgs) {
         $options = get_option('yelp_widget_settings');
