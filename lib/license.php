@@ -215,6 +215,7 @@ if (!class_exists('Plugin_Licensing')):
         } //end license_response
 
         private function upgrade_downgrade($package) {
+
             include ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
             $upgrader = new Plugin_Upgrader();
             $upgrader->init();
