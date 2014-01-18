@@ -2,25 +2,29 @@
 Contributors: dlocc
 Donate link: http://wordimpress.com/
 Tags: yelp, yelp widget, yelp shortcode, yelp api, yelp business listings, yelp reviews, yelp widget pro
-Requires at least: 3.0
-Tested up to: 3.6.1
-Stable tag: 1.3.8.2
+Requires at least: 3.5
+Tested up to: 3.8
+Stable tag: 1.4
 
 Yelp Widget Pro makes it easy for you to add business listings to your website or blog via an easy-to-use and intuitive widget.
 
 == Description ==
 
 = Yelp Widget Pro Premium =
-[Upgrade to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/ "Upgrade to Yelp Widget Pro Premium")
+[Upgrade to Yelp Widget Pro Premium](http://wordimpress.com/plugins/yelp-widget-pro/ "Upgrade to Yelp Widget Pro Premium")
 
-*Yelp Widget Pro Premium* is a **significant upgrade** to *Yelp Widget Pro* that adds many features that will allow you to further customize your widgets with Google Maps, Yelp review snippets, additional graphics and display options plus so much more! Also included is priority support, lifetime updates, multisite support and well-documented shortcodes to use in any page or post.
+[youtube http://www.youtube.com/watch?v=47ARrKb7rL8]
+
+[View the Online Demo](http://yelpwidgetpro.wordimpress.com/ "View the Online Demo of Yelp Widget Pro")
+
+*Yelp Widget Pro Premium* is a **significant upgrade** to *Yelp Widget Pro* that adds many features that will allow you to further customize your widgets with Google Maps, Yelp review snippets, additional graphics and display options plus so much more! Also included is priority support, auto updates, and well documented shortcode to display Yelp in any page or post.
 
 = Yelp Widget Pro =
 Yelp Widget Pro allows you to easily display Yelp profiles for any business on your website or blog using an intuitive and easily configurable widget. Yelp Widget Pro users are able to display business names, ratings, review counts and profile images in any WordPress sidebar. Customize the widget to display one or many listings from Yelp based on location.
 
 This widget supports for Yelp v2.0's Search and Business API methods. Yelp Widget Pro allows for multiple widgets within the same or separate sidebars. No coding knowledge required.
 
-Yelp Widget Pro is actively supported and developed. The open source version is available for free to the WordPress community. For additional options and priority support please consider [upgrading to Yelp Widget Pro Premium](http://wordimpress.com/wordpress-plugin-development/yelp-widget-pro/). If you like this plugin please [rate it on WordPress.org](http://wordpress.org/support/view/plugin-reviews/yelp-widget-pro/).
+Yelp Widget Pro is actively supported and developed. The open source version is available for free to the WordPress community. For additional options and priority support please consider [upgrading to Yelp Widget Pro Premium](http://wordimpress.com/plugins/yelp-widget-pro/). If you like this plugin please [rate it on WordPress.org](http://wordpress.org/support/view/plugin-reviews/yelp-widget-pro/).
 
 = Features =
 
@@ -42,6 +46,14 @@ Yelp Widget Pro is actively supported and developed. The open source version is 
 Note: If you have Wordpress 2.7 or above you can simply go to 'Plugins' &gt; 'Add New' in the WordPress admin and search for "Yelp Widget Pro" and install it from there.
 
 == Frequently Asked Questions ==
+
+= How do I upgrade to the Premium version? =
+
+You can update to the premium version of Yelp Widget Pro by [clicking here](http://wordimpress.com/plugins/yelp-widget-pro/). Once you upgrade you will be emailed a license key which will allow you to enable auto updates.
+
+= I've purchased the Premium version. How do I use it? =
+
+First you should remove the free version of the plugin by deactivating and deleting the plugin. Don't worry, none of your data will be lost. Next, download the premium version zip file from your [WordImpress purchase history page](http://wordimpress.com/checkout/purchase-history/) or from the successful purchase email which includes your license key and download link. After that, goto the plugin settings and input your license key to activate.
 
 = Why should I use this plugin? =
 
@@ -70,6 +82,17 @@ Some themes may have very small sidebars and CSS styles that conflict or alter t
 4. How the widget looks in a website sidebar
 
 == Changelog ==
+
+= 1.4 =
+* New: Added WordImpress logo image to options page
+* Updated: Improved widget's UI for new WP 3.8 style
+* Updated: Reformatted all code to WP Coding Standards
+* Updated: Swapped Yelp icon URL for biz url rather than just yelp.com
+* Updated: Removed old license metabox in place for new license activation explanation metabox
+* Updated: Compatible with up to WP 3.8
+* Updated: readme.txt file with additional information
+* Fixed: Broken link to premium upgrade page
+* Fixed: WP_DEBUG notices
 
 = 1.3.8.2 =
 * Removed unnecessary plugin updater class
@@ -111,7 +134,6 @@ Some themes may have very small sidebars and CSS styles that conflict or alter t
 * FIXED: Fixed Premium licensing metabox inputs min-width issue
 * Added link to Premium Version on widget
 * Code cleanup and organization
-
 
 = 1.3 =
 * Release of plugin w/ licensing logic
