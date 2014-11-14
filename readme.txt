@@ -2,29 +2,29 @@
 Contributors: wordimpress, dlocc, webdevmattcrom
 Donate link: http://wordimpress.com/
 Tags: yelp, yelp widget, yelp shortcode, yelp api, yelp business listings, yelp reviews, yelp widget pro
-Requires at least: 3.5
+Requires at least: 3.6
 Tested up to: 4.0
-Stable tag: 1.4
+Stable tag: 1.4.1
 
 Yelp Widget Pro makes it easy for you to add business listings to your website or blog via an easy-to-use and intuitive widget.
 
 == Description ==
 
-= Yelp Widget Pro Premium =
-[Upgrade to Yelp Widget Pro Premium](http://wordimpress.com/plugins/yelp-widget-pro/ "Upgrade to Yelp Widget Pro Premium")
+= Yelp Widget Premium =
+[Upgrade to Yelp Widget Premium](http://wordimpress.com/plugins/yelp-widget-pro/ "Upgrade to Yelp Widget Premium")
 
 [youtube http://www.youtube.com/watch?v=47ARrKb7rL8]
 
 [View the Online Demo](http://yelpwidgetpro.wordimpress.com/ "View the Online Demo of Yelp Widget Pro")
 
-*Yelp Widget Pro Premium* is a **significant upgrade** to *Yelp Widget Pro* that adds many features that will allow you to further customize your widgets with Google Maps, Yelp review snippets, additional graphics and display options plus so much more! Also included is priority support, auto updates, and well documented shortcode to display Yelp in any page or post.
+*Yelp Widget Premium* is a **significant upgrade** to *Yelp Widget Pro* that adds many features that will allow you to further customize your widgets with Google Maps, Yelp review snippets, additional graphics and display options plus so much more! Also included is priority support, auto updates, and well documented shortcode to display Yelp in any page or post.
 
 = Yelp Widget Pro =
 Yelp Widget Pro allows you to easily display Yelp profiles for any business on your website or blog using an intuitive and easily configurable widget. Yelp Widget Pro users are able to display business names, ratings, review counts and profile images in any WordPress sidebar. Customize the widget to display one or many listings from Yelp based on location.
 
 This widget supports for Yelp v2.0's Search and Business API methods. Yelp Widget Pro allows for multiple widgets within the same or separate sidebars. No coding knowledge required.
 
-Yelp Widget Pro is actively supported and developed. The open source version is available for free to the WordPress community. For additional options and priority support please consider [upgrading to Yelp Widget Pro Premium](http://wordimpress.com/plugins/yelp-widget-pro/). If you like this plugin please [rate it on WordPress.org](http://wordpress.org/support/view/plugin-reviews/yelp-widget-pro/).
+Yelp Widget Pro is actively supported and developed. The open source version is available for free to the WordPress community. For additional options and priority support please consider [upgrading to Yelp Widget Premium](http://wordimpress.com/plugins/yelp-widget-pro/). If you like this plugin please [rate it on WordPress.org](http://wordpress.org/support/view/plugin-reviews/yelp-widget-pro/).
 
 = Features =
 
@@ -82,6 +82,11 @@ Some themes may have very small sidebars and CSS styles that conflict or alter t
 4. How the widget looks in a website sidebar
 
 == Changelog ==
+
+= 1.4.1 =
+* Update: Renamed "Yelp Widget Pro Premium" to just "Yelp Widget Premium" - It makes more sense and sounds better
+* Update: CSS update for Yelp Settings page so metaboxes do not have toggle icons or move hovers (the metaboxes cannot be moved)
+* Fix: PHP Warning for array_key_exists check when get_option returns false
 
 = 1.4 =
 * New: Added WordImpress logo image to options page

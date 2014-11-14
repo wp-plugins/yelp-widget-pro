@@ -3,7 +3,7 @@
 Plugin Name: Yelp Widget Pro
 Plugin URI: http://wordpress.org/extend/plugins/yelp-widget-pro/
 Description: Easily display Yelp business ratings with a simple and intuitive WordPress widget.
-Version: 1.4
+Version: 1.4.1
 Author: Devin Walker
 Author URI: http://wordimpress.com/
 License: GPLv2
@@ -53,7 +53,7 @@ function add_yelp_widget_css() {
 
 	$cssOption = get_option( 'yelp_widget_settings' );
 
-	if ( !array_key_exists('yelp_widget_disable_css', $cssOption) ) {
+	if ( $cssOption && !array_key_exists('yelp_widget_disable_css', $cssOption) ) {
 
 		$url = plugins_url( YELP_PLUGIN_NAME . '/includes/style/yelp.css', dirname( __FILE__ ) );
 

@@ -120,6 +120,7 @@
 	position: absolute;
 	top: 20px;
 	right: 110px;
+	font-weight: bold;
 }
 
 .new-window {
@@ -322,4 +323,13 @@ Tipsy
 .google-plus {
 	margin-left: 20px;
 	display: inline;
+}
+
+/* Metaboxes */
+.js .postbox .hndle {
+	cursor: default;
+}
+
+.handlediv {
+	display: none;
 }

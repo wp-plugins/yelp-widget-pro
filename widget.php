@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Adds Yelp Widget Pro Widget
  */
-
 class Yelp_Widget extends WP_Widget {
 
 	/**
@@ -76,7 +76,6 @@ class Yelp_Widget extends WP_Widget {
 			'sort'     => $sort
 		);
 
-
 		// If ID param is set, use business method and delete any other parameters
 		if ( $urlparams['id'] != '' ) {
 			$urlparams['method'] = 'business/' . $urlparams['id'];
@@ -102,8 +101,10 @@ class Yelp_Widget extends WP_Widget {
 		$signed_url = $oauthrequest->to_url();
 
 		// Cache: cache option is enabled
-		if ( $cache != 'None' ) {
-			$transient = $term . $id . $location . $limit . $sort . $profileImgSize;
+		if ( $cache !== 'None' ) {
+
+			$transient = $displayOption . $term . $id . $location . $limit . $sort . $profileImgSize;
+
 			// Check for an existing copy of our cached/transient data
 			if ( ( $response = get_transient( $transient ) ) == false ) {
 
@@ -234,35 +235,36 @@ class Yelp_Widget extends WP_Widget {
 
 
 					?>">
-						<div class="biz-img-wrap"><img class="picture" src="<?php if ( ! empty( $businesses[$x]->image_url ) ) {
-								echo esc_attr( $businesses[$x]->image_url );
+						<div class="biz-img-wrap">
+							<img class="picture" src="<?php if ( ! empty( $businesses[ $x ]->image_url ) ) {
+								echo esc_attr( $businesses[ $x ]->image_url );
 							} else {
 								echo YELP_WIDGET_PRO_URL . '/includes/images/blank-biz.png';
 							}; ?>"
-									<?php
-									//Set profile image size
-									switch ( $profileImgSize ) {
+								<?php
+								//Set profile image size
+								switch ( $profileImgSize ) {
 
-										case '40x40':
-											echo "width='40' height='40'";
-											break;
-										case '60x60':
-											echo "width='60' height='60'";
-											break;
-										case '80x80':
-											echo "width='80' height='80'";
-											break;
-										case '100x100':
-											echo "width='100' height='100'";
-											break;
-										default:
-											echo "width='60' height='60'";
-									} ?> /></div>
+									case '40x40':
+										echo "width='40' height='40'";
+										break;
+									case '60x60':
+										echo "width='60' height='60'";
+										break;
+									case '80x80':
+										echo "width='80' height='80'";
+										break;
+									case '100x100':
+										echo "width='100' height='100'";
+										break;
+									default:
+										echo "width='60' height='60'";
+								} ?> /></div>
 						<div class="info">
-							<a class="name" <?php echo $targetBlank; ?>  <?php echo $noFollow; ?> href="<?php echo esc_attr( $businesses[$x]->url ); ?>" title="<?php echo esc_attr( $businesses[$x]->name ); ?> <?php _e( 'on Yelp', 'ywp' ); ?>"><?php echo $businesses[$x]->name; ?></a>
-							<img class="rating" src="<?php echo esc_attr( $businesses[$x]->rating_img_url ); ?>" alt="<?php echo esc_attr( $businesses[$x]->name ); ?> <?php _e( 'Yelp Rating', 'ywp' ); ?>" title="<?php echo esc_attr( $businesses[$x]->name ); ?> <?php _e( 'Yelp Rating', 'ywp' ); ?>" />
-							<span class="review-count"><?php echo esc_attr( $businesses[$x]->review_count ) . ' reviews'; ?></span>
-							<a class="yelp-branding" href="<?php echo esc_attr( $businesses[$x]->url ); ?>" <?php echo $targetBlank; ?> <?php echo $noFollow; ?>><img src="<?php echo YELP_WIDGET_PRO_URL . '/includes/images/yelp.png'; ?>" alt="Powered by Yelp" /></a>
+							<a class="name" <?php echo $targetBlank; ?>  <?php echo $noFollow; ?> href="<?php echo esc_attr( $businesses[ $x ]->url ); ?>" title="<?php echo esc_attr( $businesses[ $x ]->name ); ?> <?php _e( 'on Yelp', 'ywp' ); ?>"><?php echo $businesses[ $x ]->name; ?></a>
+							<img class="rating" src="<?php echo esc_attr( $businesses[ $x ]->rating_img_url ); ?>" alt="<?php echo esc_attr( $businesses[ $x ]->name ); ?> <?php _e( 'Yelp Rating', 'ywp' ); ?>" title="<?php echo esc_attr( $businesses[ $x ]->name ); ?> <?php _e( 'Yelp Rating', 'ywp' ); ?>" />
+							<span class="review-count"><?php echo esc_attr( $businesses[ $x ]->review_count ) . ' reviews'; ?></span>
+							<a class="yelp-branding" href="<?php echo esc_attr( $businesses[ $x ]->url ); ?>" <?php echo $targetBlank; ?> <?php echo $noFollow; ?>><img src="<?php echo YELP_WIDGET_PRO_URL . '/includes/images/yelp.png'; ?>" alt="Powered by Yelp" /></a>
 						</div>
 
 						<?php
@@ -273,7 +275,7 @@ class Yelp_Widget extends WP_Widget {
 								<address>
 									<?php
 									//Iterate through Address Array
-									foreach ( $businesses[$x]->location->display_address as $addressItem ) {
+									foreach ( $businesses[ $x ]->location->display_address as $addressItem ) {
 
 										echo $addressItem . "<br/>";
 									} ?>
@@ -284,14 +286,15 @@ class Yelp_Widget extends WP_Widget {
 						} //endif address
 
 						//Phone
-						if ( $phone == 1 ) { ?>
+						if ( $phone == 1 ) {
+							?>
 
 							<p class="ywp-phone"><?php
 								//echo pretty display_phone (only avail in biz API)
-								if ( ! empty( $businesses[$x]->display_phone ) ) {
-									echo $businesses[$x]->display_phone;
+								if ( ! empty( $businesses[ $x ]->display_phone ) ) {
+									echo $businesses[ $x ]->display_phone;
 								} else {
-									echo $businesses[$x]->phone;
+									echo $businesses[ $x ]->phone;
 								}  ?></p>
 
 
@@ -402,13 +405,32 @@ function yelp_widget_curl( $signed_url ) {
 		curl_setopt( $ch, CURLOPT_HEADER, 0 );
 		$data = curl_exec( $ch ); // Yelp response
 		curl_close( $ch );
+		$data     = yelp_update_http_for_ssl( $data );
 		$response = json_decode( $data );
 
 	} else {
+		$data     = yelp_update_http_for_ssl( $data );
 		$response = json_decode( $data['body'] );
 	}
 
 	// Handle Yelp response data
 	return $response;
+
+}
+
+/**
+ * Function update http for SSL
+ *
+ */
+function yelp_update_http_for_ssl( $data ) {
+
+	if ( ! empty( $data['body'] ) && is_ssl() ) {
+		$data['body'] = str_replace( 'http:', 'https:', $data['body'] );
+	} elseif ( is_ssl() ) {
+		$data = str_replace( 'http:', 'https:', $data );
+	}
+	$data = str_replace( 'http:', 'https:', $data );
+
+	return $data;
 
 }

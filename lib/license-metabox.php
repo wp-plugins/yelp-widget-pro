@@ -7,7 +7,7 @@ global $options;
 
 <div id="yelp-widget-pro-premium" class="postbox">
 	<div class="handlediv" title="Click to toggle"><br></div>
-	<h3 class="hndle"><span><?php _e( 'Yelp Widget Pro Premium', 'ywp' ); ?></span></h3>
+	<h3 class="hndle"><span><?php _e( 'Yelp Widget Premium', 'ywp' ); ?></span></h3>
 
 	<div class="inside">
 		<?php
@@ -36,7 +36,7 @@ global $options;
 			echo $licensing->license_response( $response );  ?>
 
 			<div class="control-group">
-				<p><?php _e( 'If you have purchased a license for Yelp Widget Pro Premium you may enter it in below to enable premium features:', 'ywp' ); ?></p>
+				<p><?php _e( 'If you have purchased a license for Yelp Widget Premium you may enter it in below to enable premium features:', 'ywp' ); ?></p>
 
 				<div class="control-label">
 					<label for="yelp_widget_premium_email"><?php _e( 'License Email', 'ywp' ); ?>

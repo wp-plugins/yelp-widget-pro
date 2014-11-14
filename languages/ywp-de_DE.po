@@ -189,12 +189,12 @@ msgid "1 Week"
 msgstr ""
 
 #: lib/license-metabox.php:9
-msgid "Yelp Widget Pro Premium"
+msgid "Yelp Widget Premium"
 msgstr ""
 
 #: lib/license-metabox.php:39
 msgid ""
-"If you have purchased a license for Yelp Widget Pro Premium you may enter it "
+"If you have purchased a license for Yelp Widget Premium you may enter it "
 "in below to enable premium features:"
 msgstr ""
 
@@ -218,7 +218,7 @@ msgstr ""
 msgid ""
 "<div class=\"license-activated alert alert-success\">\n"
 "               <p><strong>License Activated</strong><br/> Thank you for "
-"purchasing Yelp Widget Pro Premium"
+"purchasing Yelp Widget Premium"
 msgstr ""
 
 #: lib/license.php:182
@@ -248,7 +248,7 @@ msgstr ""
 
 #: lib/license.php:206
 msgid ""
-"Upgrade to Yelp Widget Pro Premium</strong><br/> Features include review "
+"Upgrade to Yelp Widget Premium</strong><br/> Features include review "
 "snippets, a shortcode to display Yelp businesses anywhere on your site, more "
 "configuration options and free lifetime updates."
 msgstr ""

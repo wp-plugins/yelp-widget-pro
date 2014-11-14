@@ -92,7 +92,7 @@ function ywp_add_plugin_page_links( $links, $file ) {
 function ywp_add_plugin_meta_links( $meta, $file ) {
 	if ( $file == YELP_PLUGIN_NAME_PLUGIN ) {
 		$meta[] = "<a href='http://wordpress.org/support/view/plugin-reviews/yelp-widget-pro' target='_blank' title='" . __( 'Rate Yelp Widget Pro', 'ywp' ) . "'>" . __( 'Rate Plugin', 'ywp' ) . "</a>";
-		$meta[] = "<a href='http://wordimpress.com/plugins/yelp-widget-pro/' target='_blank' title='" . __( 'Upgrade to Yelp Widget Pro Premium', 'ywp' ) . "'>" . __( 'Upgrade to Premium', 'ywp' ) . "</a>";
+		$meta[] = "<a href='http://wordimpress.com/plugins/yelp-widget-pro/' target='_blank' title='" . __( 'Upgrade to Yelp Widget Premium', 'ywp' ) . "'>" . __( 'Upgrade to Premium', 'ywp' ) . "</a>";
 	}
 
 	return $meta;
@@ -158,7 +158,7 @@ function yelp_widget_options_form() {
 			<div id="icon-yelp" class=""></div>
 			<h2><?php _e( 'Yelp Widget Pro Settings', 'ywp' ); ?> </h2>
 			<label class="label basic-label">Basic Version</label>
-			<a href="http://wordimpress.com/plugins/yelp-widget-pro/" title="Upgrade to Yelp Widget Pro Premium" target="_blank" class="update-link new-window">Upgrade to Premium</a>
+			<a href="http://wordimpress.com/plugins/yelp-widget-pro/" title="Upgrade to Yelp Widget Premium" target="_blank" class="update-link new-window">Upgrade to Premium</a>
 		</div>
 		<form id="yelp-settings" method="post" action="options.php">
 
@@ -317,21 +317,21 @@ function yelp_widget_options_form() {
 
 						<div id="yelp-widget-pro-premium" class="postbox">
 							<div class="handlediv" title="Click to toggle"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Yelp Widget Pro Premium', 'ywp' ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Yelp Widget Premium', 'ywp' ); ?></span></h3>
 
 							<div class="inside">
 
-								<p><?php _e( 'Yelp Widget Pro Premium is a significant upgrade to Yelp Widget Pro that adds many features that will allow you to further customize your widgets with Google Maps, Yelp review snippets, additional graphics and display options plus so much more! Also included is priority support, auto updates, and well documented shortcodes to display Yelp in any page or post', 'ywp' ); ?>.</p>
+								<p><?php _e( 'Yelp Widget Premium is a significant upgrade to Yelp Widget Pro that adds many features that will allow you to further customize your widgets with Google Maps, Yelp review snippets, additional graphics and display options plus so much more! Also included is priority support, auto updates, and well documented shortcodes to display Yelp in any page or post', 'ywp' ); ?>.</p>
 							</div>
 						</div>
-						<!-- /.license-->
+						<!-- /.premium-metabox -->
 
 						<div id="yelp-widget-pro-support" class="postbox">
 							<div class="handlediv" title="Click to toggle"><br></div>
 							<h3 class="hndle"><span><?php _e( 'Need Support?', 'ywp' ); ?></span></h3>
 
 							<div class="inside">
-								<p><?php _e( 'If you have any problems with this plugin or ideas for improvements or enhancements, please use the WordImpress support forum: <a href="http://wordimpress.com/support/forum/yelp-widget-pro/" target="_blank" class="new-window">Support Forums</a>. Please note, support is prioritized for <a href="http://wordimpress.com/plugins/yelp-widget-pro/" title="Upgrade to Yelp Widget Pro Premium" target="_blank" class="new-window">Premium Users</a>.', 'ywp' ); ?></p>
+								<p><?php _e( 'If you have any problems with this plugin or ideas for improvements or enhancements, please use the WordImpress support forum: <a href="http://wordimpress.com/support/forum/yelp-widget-pro/" target="_blank" class="new-window">Support Forums</a>. Please note, support is prioritized for <a href="http://wordimpress.com/plugins/yelp-widget-pro/" title="Upgrade to Yelp Widget Premium" target="_blank" class="new-window">Premium Users</a>.', 'ywp' ); ?></p>
 							</div>
 							<!-- /.inside -->
 						</div>

@@ -214,7 +214,7 @@ msgstr ""
 msgid ""
 "<div class=\"license-activated alert alert-success\">\n"
 "               <p><strong>License Activated</strong><br/> Thank you for "
-"purchasing Yelp Widget Pro Premium"
+"purchasing Yelp Widget Premium"
 msgstr ""
 
 #: lib/license.php:182
@@ -244,7 +244,7 @@ msgstr ""
 
 #: lib/license.php:206
 msgid ""
-"Upgrade to Yelp Widget Pro Premium</strong><br/> Features include review "
+"Upgrade to Yelp Widget Premium</strong><br/> Features include review "
 "snippets, a shortcode to display Yelp businesses anywhere on your site, more "
 "configuration options and free lifetime updates."
 msgstr ""
