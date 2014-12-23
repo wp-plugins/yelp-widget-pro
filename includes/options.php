@@ -305,7 +305,7 @@ function yelp_widget_options_form() {
 
 						<div class="control-group">
 							<div class="controls">
-								<input class="button-primary" type="submit" name="submit-button" value="<?php _e( 'Update' ); ?>" />
+								<input class="button-primary" type="submit" name="submit-button" value="<?php _e( 'Update', 'ywp' ); ?>" />
 							</div>
 						</div>
 					</div>

@@ -4,7 +4,7 @@ Donate link: http://wordimpress.com/
 Tags: yelp, yelp widget, yelp shortcode, yelp api, yelp business listings, yelp reviews, yelp widget pro
 Requires at least: 3.6
 Tested up to: 4.0
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 
 Yelp Widget Pro makes it easy for you to add business listings to your website or blog via an easy-to-use and intuitive widget.
 
@@ -36,6 +36,14 @@ Yelp Widget Pro is actively supported and developed. The open source version is 
 6. Actively developed and improved
 7. Option to open links in new window
 8. Option to no-follow links for all the SEOs
+
+= Other Business Reviews Plugins =
+
+Why limit your reviews to just Yelp Reviews? Check out our other free business reviews plugins to add to your site as well:
+
+* [Google Places Review](https://wordpress.org/plugins/google-places-reviews "Google Places Reviews")
+* [Yellow Pages Reviews](https://wordpress.org/plugins/yellow-pages-reviews/ "Yellow Pages Reviews")
+* Get all three of our Premium Business Reviews plugins for one low price. [Premium Business Reviews Bundle](https://wordimpress.com/plugins/business-reviews-bundle/?utm_source=WordPress.org&utm_medium=readme&utm_campaign=Yelp%20Reviews%20Repo "Premium Business Reviews Bundle")
 
 == Installation ==
 
@@ -82,6 +90,11 @@ Some themes may have very small sidebars and CSS styles that conflict or alter t
 4. How the widget looks in a website sidebar
 
 == Changelog ==
+
+= 1.4.2 =
+* Added Activation Banner
+* Updated Readme.txt
+* Fully I18n (internationalize) ready.
 
 = 1.4.1 =
 * Update: Renamed "Yelp Widget Pro Premium" to just "Yelp Widget Premium" - It makes more sense and sounds better

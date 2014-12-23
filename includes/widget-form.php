@@ -8,7 +8,7 @@
 
 <!-- Title -->
 <p>
-	<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Widget Title' ); ?></label>
+	<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Widget Title', 'ywp' ); ?></label>
 	<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
 </p>
 
@@ -29,7 +29,7 @@
 } ?>">
 	<!-- Search Term -->
 	<p>
-		<label for="<?php echo $this->get_field_id( 'term' ); ?>"><?php _e( 'Search Term:' ); ?>
+		<label for="<?php echo $this->get_field_id( 'term' ); ?>"><?php _e( 'Search Term:', 'ywp' ); ?>
 			<img src="<?php echo YELP_WIDGET_PRO_URL . '/includes/images/help.png' ?>" title="<?php _e( 'The term you would like to display results for, ie: \'Bars\', \'Daycare\', \'Restaurants\'.', 'ywp' ); ?>" class="tooltip-info" width="16" height="16" /></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'term' ); ?>" name="<?php echo $this->get_field_name( 'term' ); ?>" type="text" value="<?php echo $term; ?>" />
 	</p>
@@ -37,14 +37,14 @@
 
 	<!-- Location -->
 	<p>
-		<label for="<?php echo $this->get_field_id( 'location' ); ?>"><?php _e( 'Location:' ); ?>
+		<label for="<?php echo $this->get_field_id( 'location' ); ?>"><?php _e( 'Location:', 'ywp' ); ?>
 			<img src="<?php echo YELP_WIDGET_PRO_URL . '/includes/images/help.png' ?>" title="<?php _e( 'The city name you would like to to search, ie \'San Diego\', \'New York\', \'Miami\'.', 'ywp' ); ?>" class="tooltip-info" width="16" height="16" /></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'location' ); ?>" name="<?php echo $this->get_field_name( 'location' ); ?>" type="text" value="<?php echo $location; ?>" />
 	</p>
 
 	<!-- Limit -->
 	<p>
-		<label for="<?php echo $this->get_field_id( 'limit' ); ?>"><?php _e( 'Number of Items:' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'limit' ); ?>"><?php _e( 'Number of Items:', 'ywp' ); ?></label>
 		<select name="<?php echo $this->get_field_name( 'limit' ); ?>" id="<?php echo $this->get_field_id( 'limit' ); ?>" class="widefat">
 			<?php
 			$options = array( '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' );
@@ -61,7 +61,7 @@
 
 	<!-- Sort -->
 	<p>
-		<label for="<?php echo $this->get_field_id( 'sort' ); ?>"><?php _e( 'Sorting:' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'sort' ); ?>"><?php _e( 'Sorting:', 'ywp' ); ?></label>
 
 		<select name="<?php echo $this->get_field_name( 'sort' ); ?>" id="<?php echo $this->get_field_id( 'sort' ); ?>" class="widefat">
 			<?php
@@ -85,7 +85,7 @@
 } ?>">
 	<!-- Business ID -->
 	<p>
-		<label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'Business ID:' ); ?>
+		<label for="<?php echo $this->get_field_id( 'id' ); ?>"><?php _e( 'Business ID:', 'ywp' ); ?>
 			<img src="<?php echo YELP_WIDGET_PRO_URL . '/includes/images/help.png' ?>" title="<?php _e( 'The Business ID is the portion of the Yelp url after the \'http://www.yelp.com/biz/\' portion. For example, the following business\'s URL on Yelp is \'http://www.yelp.com/biz/the-barbeque-pit-seattle-2\' and the Business ID is \'the-barbeque-pit-seattle-2\'. For more information <a href=\'http://wordimpress.com/docs/yelp-widget-pro/#search-method\' target=\'_blank\'>Click Here</a>', 'ywp' ); ?>" class="tooltip-info" width="16" height="16" /></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'id' ); ?>" name="<?php echo $this->get_field_name( 'id' ); ?>" type="text" value="<?php echo $id; ?>" />
 	</p>
@@ -98,7 +98,7 @@
 
 	<!-- Profile Image Size -->
 	<p>
-		<label for="<?php echo $this->get_field_id( 'profile_img_size' ); ?>"><?php _e( 'Profile Image Size:' ); ?>
+		<label for="<?php echo $this->get_field_id( 'profile_img_size' ); ?>"><?php _e( 'Profile Image Size:', 'ywp' ); ?>
 			<img src="<?php echo YELP_WIDGET_PRO_URL . '/includes/images/help.png' ?>" title="<?php _e( 'Customize the width and height of the business Yelp profile image.', 'ywp' ); ?>" class="tooltip-info" width="16" height="16" /></label>
 		<select name="<?php echo $this->get_field_name( 'profile_img_size' ); ?>" id="<?php echo $this->get_field_id( 'profile_img_size' ); ?>" class="widefat">
 			<?php
@@ -156,7 +156,7 @@
 
 	<!-- Transient / Cache -->
 	<p>
-		<label for="<?php echo $this->get_field_id( 'cache' ); ?>"><?php _e( 'Cache Data:' ); ?>
+		<label for="<?php echo $this->get_field_id( 'cache' ); ?>"><?php _e( 'Cache Data:', 'ywp' ); ?>
 			<img src="<?php echo YELP_WIDGET_PRO_URL . '/includes/images/help.png' ?>" title="<?php _e( 'Caching data will save Yelp data to your database in order to speed up response times and conserve API requests. The suggested settings is 1 Day. ', 'ywp' ); ?>" class="tooltip-info" width="16" height="16" /></label>
 		<select name="<?php echo $this->get_field_name( 'cache' ); ?>" id="<?php echo $this->get_field_id( 'cache' ); ?>" class="widefat">
 			<?php

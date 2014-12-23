@@ -71,11 +71,11 @@ global $options;
 					if ( $licenseStatus == 1 ) {
 						?>
 
-						<input class="button" id="deactivate" type="submit" name="submit-button" value="<?php _e( 'Deactivate' ); ?>" />
+						<input class="button" id="deactivate" type="submit" name="submit-button" value="<?php _e( 'Deactivate', 'ywp' ); ?>" />
 
 					<?php } else { ?>
 
-						<input class="button" id="activate" type="submit" name="submit-button" value="<?php _e( 'Activate' ); ?>" />
+						<input class="button" id="activate" type="submit" name="submit-button" value="<?php _e( 'Activate', 'ywp' ); ?>" />
 
 					<?php } ?>
 
