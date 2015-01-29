@@ -170,12 +170,12 @@ function yelp_widget_options_form() {
 					<div id="main-sortables" class="meta-box-sortables ui-sortable">
 						<div class="postbox" id="yelp-widget-intro">
 							<div class="handlediv" title="Click to toggle"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Yelp Widget Pro Introductions', 'ywp' ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Yelp Widget Pro Introduction', 'ywp' ); ?></span></h3>
 
 							<div class="inside">
-								<p><?php _e( 'Thanks for choosing Yelp Widget Pro! <strong>To start using Yelp Widget Pro you must have a valid Yelp API key</strong>.  Don\'t worry, it\'s <em>free</em> and very easy to get one! <strong>Having trouble?</strong> Check out the <a href="http://wordimpress.com/docs/yelp-widget-pro/#how-to-request-a-yelp-api-key" target="_blank" class="new-window">How to Request a Yelp API Key</a> screencast.', 'ywp' ); ?></p>
+								<p><?php _e( 'Thanks for choosing Yelp Widget Pro! <strong>To start using Yelp Widget Pro you must have a valid Yelp API key</strong>.  Don\'t worry, it\'s <em>free</em> and very easy to get one! For instructions, please check out the <a href="http://wordimpress.com/docs/yelp-widget-pro/#how-to-request-a-yelp-api-key" target="_blank" class="new-window">How to Request a Yelp API Key</a> screencast.', 'ywp' ); ?></p>
 
-								<p><strong><?php _e( 'Yelp Widget Pro Activation Instructions:', 'ywp' ); ?></strong></p>
+								<p><strong><?php _e( 'Yelp API Activation Instructions:', 'ywp' ); ?></strong></p>
 
 								<ol>
 									<li><?php _e( 'Sign into Yelp or create an account if you don\'t have one already', 'ywp' ); ?></li>

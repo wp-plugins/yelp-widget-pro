@@ -223,7 +223,7 @@ function ywp_activation_admin_notice() {
 			<div class="updated ywp">
 				<header>
 					<img src="<?php echo YELP_WIDGET_PRO_URL; ?>/includes/images/yelp-logo-transparent-icon.png"  class="yelp-logo"/>
-					<h3><?php _e('Thanks for installing Yelp Widget Pro Premium!','ywp'); ?></h3>
+					<h3><?php _e('Thanks for installing Yelp Widget Pro (Free Version)!','ywp'); ?></h3>
 					<?php printf(__('<a href="%1$s" class="dismiss"></a>', 'ywp'), '?ywp_nag_ignore=0'); ?>
 				</header>
 				<div class="ywp-actions">
@@ -234,9 +234,9 @@ function ywp_activation_admin_notice() {
 					</div>
 
 					<div class="ywp-action">
-						<a href="<?php echo admin_url(); ?>widgets.php">
-							<span class="dashicons dashicons-admin-generic"></span>
-							<?php _e('Add a Yelp Widget','ywp'); ?>
+						<a href="https://wordimpress.com/plugins/yelp-widget-pro/" target="_blank">
+							<span class="dashicons dashicons-download"></span>
+							<?php _e('Upgrade to Premium Version','ywp'); ?>
 						</a>
 					</div>
 
